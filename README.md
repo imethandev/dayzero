@@ -25,7 +25,7 @@ Everything stays on the phone. DayZero has no accounts, no analytics and no serv
 ## Getting started
 
 ```sh
-git clone https://github.com/enguyendesigner/dayzero.git
+git clone https://github.com/imethandev/dayzero.git
 cd dayzero
 ```
 
