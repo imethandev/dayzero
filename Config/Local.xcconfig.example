@@ -1,0 +1,7 @@
+// Copy this file to Config/Local.xcconfig. That file is gitignored.
+
+// Your Apple developer team ID (Xcode → Settings → Accounts, or developer.apple.com → Membership).
+DEVELOPMENT_TEAM = ABCDE12345
+
+// A reverse-DNS prefix you control. The app becomes <prefix>.DayZero.
+BUNDLE_ID_PREFIX = com.yourname

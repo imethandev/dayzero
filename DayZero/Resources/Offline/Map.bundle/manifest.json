@@ -1,0 +1,32 @@
+{
+  "osmExtract": "washington-latest.osm.pbf (Geofabrik)",
+  "osmTimestamp": "2026-11-10T21:21:39Z",
+  "builtAt": "2026-11-12T00:40:57+00:00",
+  "tiles": {
+    "file": "washington.pmtiles",
+    "minzoom": 0,
+    "maxzoom": 14,
+    "schema": "OpenMapTiles"
+  },
+  "bounds": [
+    -126.7423,
+    45.53882,
+    -116.911526,
+    49.00708
+  ],
+  "places": {
+    "city": 19,
+    "clinic": 1806,
+    "drinking_water": 1479,
+    "fire_station": 845,
+    "fuel": 2622,
+    "hamlet": 1508,
+    "hospital": 119,
+    "pharmacy": 462,
+    "police": 230,
+    "shelter": 266,
+    "town": 138,
+    "village": 282
+  },
+  "attribution": "\u00a9 OpenMapTiles \u00a9 OpenStreetMap contributors"
+}

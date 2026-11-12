@@ -1,0 +1,11 @@
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+.DS_Store
+pipeline/work/
+DayZero/Resources/Offline/Map.bundle/washington.pmtiles
+DayZero/Resources/Offline/Map.bundle/places.sqlite
+
+# Personal signing settings
+Config/Local.xcconfig

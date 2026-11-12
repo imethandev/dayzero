@@ -1,0 +1,887 @@
+{
+  "version": 4,
+  "items": [
+    {
+      "key": "food.rice",
+      "name": "White rice",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 1650,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.beans",
+      "name": "Dried beans",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 1550,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.pasta",
+      "name": "Pasta",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 1680,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.oats",
+      "name": "Rolled oats",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 1720,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.flour",
+      "name": "Flour",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 1650,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.sugar",
+      "name": "Sugar",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 1750,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.salt",
+      "name": "Salt",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 0,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.oil",
+      "name": "Cooking oil",
+      "kind": "food",
+      "unit": "bottle (48 oz)",
+      "caloriesPerUnit": 11500,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.peanut_butter",
+      "name": "Peanut butter",
+      "kind": "food",
+      "unit": "jar (16 oz)",
+      "caloriesPerUnit": 2600,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.honey",
+      "name": "Honey",
+      "kind": "food",
+      "unit": "jar (12 oz)",
+      "caloriesPerUnit": 1000,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.powdered_milk",
+      "name": "Powdered milk",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 1600,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.canned_veg",
+      "name": "Canned vegetables",
+      "kind": "food",
+      "unit": "can (15 oz)",
+      "caloriesPerUnit": 175,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.canned_fruit",
+      "name": "Canned fruit",
+      "kind": "food",
+      "unit": "can (15 oz)",
+      "caloriesPerUnit": 300,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.canned_meat",
+      "name": "Canned meat or fish",
+      "kind": "food",
+      "unit": "can",
+      "caloriesPerUnit": 250,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.canned_soup",
+      "name": "Canned soup",
+      "kind": "food",
+      "unit": "can",
+      "caloriesPerUnit": 225,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.freeze_dried",
+      "name": "Freeze-dried meals",
+      "kind": "food",
+      "unit": "pouch (2 servings)",
+      "caloriesPerUnit": 500,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.mre",
+      "name": "MREs",
+      "kind": "food",
+      "unit": "each",
+      "caloriesPerUnit": 1250,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.energy_bar",
+      "name": "Energy bars",
+      "kind": "food",
+      "unit": "bar",
+      "caloriesPerUnit": 250,
+      "foodGroup": "regular"
+    },
+    {
+      "key": "food.infant_formula",
+      "name": "Infant formula, powder",
+      "kind": "food",
+      "unit": "can (12 oz powder)",
+      "caloriesPerUnit": 1750,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.formula_rtf",
+      "name": "Infant formula, ready-to-feed",
+      "kind": "food",
+      "unit": "bottle (32 oz)",
+      "caloriesPerUnit": 640,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.cereal",
+      "name": "Infant cereal",
+      "kind": "food",
+      "unit": "box (8 oz)",
+      "caloriesPerUnit": 900,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.jars",
+      "name": "Baby food jars or pouches",
+      "kind": "food",
+      "unit": "pouch (4 oz)",
+      "caloriesPerUnit": 80,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.puffs",
+      "name": "Toddler puffs or snacks",
+      "kind": "food",
+      "unit": "container (1.5 oz)",
+      "caloriesPerUnit": 180,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.teething",
+      "name": "Teething biscuits",
+      "kind": "food",
+      "unit": "box (24)",
+      "caloriesPerUnit": 600,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.milk",
+      "name": "Shelf-stable whole milk",
+      "kind": "food",
+      "unit": "carton (8 oz)",
+      "caloriesPerUnit": 150,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.electrolyte",
+      "name": "Kids electrolyte drink",
+      "kind": "food",
+      "unit": "bottle (1 liter)",
+      "caloriesPerUnit": 100,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.baby.nursery_water",
+      "name": "Nursery water for formula",
+      "kind": "food",
+      "unit": "gallon",
+      "caloriesPerUnit": 0,
+      "foodGroup": "baby"
+    },
+    {
+      "key": "food.pet_food",
+      "name": "Dry dog food",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "food.pet.dry_cat",
+      "name": "Dry cat food",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "food.pet.wet_dog",
+      "name": "Canned dog food",
+      "kind": "food",
+      "unit": "can (13 oz)",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "food.pet.wet_cat",
+      "name": "Canned cat food",
+      "kind": "food",
+      "unit": "can (5.5 oz)",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "food.pet.treats",
+      "name": "Pet treats",
+      "kind": "food",
+      "unit": "bag",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "food.pet.small_animal",
+      "name": "Bird or small-animal food",
+      "kind": "food",
+      "unit": "lb",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "food.pet.fish",
+      "name": "Fish food",
+      "kind": "food",
+      "unit": "container",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "food.pet.water",
+      "name": "Drinking water for pets",
+      "kind": "food",
+      "unit": "gallon",
+      "caloriesPerUnit": 0,
+      "foodGroup": "pet"
+    },
+    {
+      "key": "water.jug_1gal",
+      "name": "1 gallon jug",
+      "kind": "water",
+      "unit": "jug",
+      "gallonsPerUnit": 1
+    },
+    {
+      "key": "water.container_5gal",
+      "name": "5 gallon container",
+      "kind": "water",
+      "unit": "container",
+      "gallonsPerUnit": 5
+    },
+    {
+      "key": "water.barrel_55gal",
+      "name": "55 gallon barrel",
+      "kind": "water",
+      "unit": "barrel",
+      "gallonsPerUnit": 55
+    },
+    {
+      "key": "water.bottles_case24",
+      "name": "Case of 24 bottles (16.9 oz)",
+      "kind": "water",
+      "unit": "case",
+      "gallonsPerUnit": 3.17
+    },
+    {
+      "key": "tool.flashlight",
+      "name": "Flashlight",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.headlamp",
+      "name": "Headlamp",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.battery_or_hand_crank_radio",
+      "name": "Battery or hand-crank radio",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.aa_batteries",
+      "name": "AA batteries",
+      "kind": "tool",
+      "unit": "battery",
+      "group": "power"
+    },
+    {
+      "key": "tool.aaa_batteries",
+      "name": "AAA batteries",
+      "kind": "tool",
+      "unit": "battery",
+      "group": "power"
+    },
+    {
+      "key": "tool.power_bank",
+      "name": "Power bank",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.solar_charger",
+      "name": "Solar charger",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.battery_powered_lantern",
+      "name": "Battery-powered lantern",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.hand_crank_flashlight",
+      "name": "Hand-crank flashlight",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.d_batteries",
+      "name": "D batteries",
+      "kind": "tool",
+      "unit": "battery",
+      "group": "power"
+    },
+    {
+      "key": "tool.c_batteries",
+      "name": "C batteries",
+      "kind": "tool",
+      "unit": "battery",
+      "group": "power"
+    },
+    {
+      "key": "tool.9v_batteries",
+      "name": "9V batteries",
+      "kind": "tool",
+      "unit": "battery",
+      "group": "power"
+    },
+    {
+      "key": "tool.charging_cables",
+      "name": "Charging cables",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.car_phone_charger",
+      "name": "Car phone charger",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.portable_power_station",
+      "name": "Portable power station",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.portable_generator",
+      "name": "Portable generator",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.extension_cord_(outdoor)",
+      "name": "Extension cord (outdoor)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.glow_sticks",
+      "name": "Glow sticks",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.candles",
+      "name": "Candles",
+      "kind": "tool",
+      "unit": "candle",
+      "group": "power"
+    },
+    {
+      "key": "tool.water_filter",
+      "name": "Water filter",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.water_purification_tablets",
+      "name": "Water purification tablets",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "water"
+    },
+    {
+      "key": "tool.gravity_water_filter",
+      "name": "Gravity water filter",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.personal_straw_filter",
+      "name": "Personal straw filter",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.replacement_filter_cartridges",
+      "name": "Replacement filter cartridges",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.unscented_bleach",
+      "name": "Unscented bleach",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "water"
+    },
+    {
+      "key": "tool.collapsible_water_container",
+      "name": "Collapsible water container",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.water_bottle_(refillable)",
+      "name": "Water bottle (refillable)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.bathtub_water_storage_bladder",
+      "name": "Bathtub water storage bladder",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.siphon_pump",
+      "name": "Siphon pump",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.pot_for_boiling_water",
+      "name": "Pot for boiling water",
+      "kind": "tool",
+      "unit": "each",
+      "group": "water"
+    },
+    {
+      "key": "tool.coffee_filters_(pre_filter)",
+      "name": "Coffee filters (pre-filter)",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "water"
+    },
+    {
+      "key": "tool.water_storage_preserver",
+      "name": "Water storage preserver",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "water"
+    },
+    {
+      "key": "tool.bucket_toilet_kit",
+      "name": "Bucket toilet kit",
+      "kind": "tool",
+      "unit": "each",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.heavy_duty_trash_bags",
+      "name": "Heavy-duty trash bags",
+      "kind": "tool",
+      "unit": "box",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.toilet_paper",
+      "name": "Toilet paper",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.hand_sanitizer",
+      "name": "Hand sanitizer",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.wet_wipes",
+      "name": "Wet wipes",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.toilet_waste_bags",
+      "name": "Toilet waste bags",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.cat_litter_or_absorbent_for_toilet",
+      "name": "Cat litter or absorbent (for toilet)",
+      "kind": "tool",
+      "unit": "bag",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.bar_soap",
+      "name": "Bar soap",
+      "kind": "tool",
+      "unit": "bar",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.dish_soap",
+      "name": "Dish soap",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.disinfecting_wipes",
+      "name": "Disinfecting wipes",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.disposable_nitrile_gloves",
+      "name": "Disposable nitrile gloves",
+      "kind": "tool",
+      "unit": "box",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.paper_towels",
+      "name": "Paper towels",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.toothbrushes",
+      "name": "Toothbrushes",
+      "kind": "tool",
+      "unit": "each",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.toothpaste",
+      "name": "Toothpaste",
+      "kind": "tool",
+      "unit": "tube",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.no_rinse_body_wash",
+      "name": "No-rinse body wash",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.feminine_hygiene_products",
+      "name": "Feminine hygiene products",
+      "kind": "tool",
+      "unit": "box",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.diapers",
+      "name": "Diapers",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.laundry_detergent",
+      "name": "Laundry detergent",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "sanitation"
+    },
+    {
+      "key": "tool.plastic_sheeting",
+      "name": "Plastic sheeting",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "survival"
+    },
+    {
+      "key": "tool.first_aid_kit",
+      "name": "First aid kit",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.multi_tool",
+      "name": "Multi-tool",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.knife",
+      "name": "Knife",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.manual_can_opener",
+      "name": "Manual can opener",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.camp_stove",
+      "name": "Camp stove",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.fuel_canister",
+      "name": "Fuel canister",
+      "kind": "tool",
+      "unit": "canister",
+      "group": "survival"
+    },
+    {
+      "key": "tool.lighter",
+      "name": "Lighter",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.waterproof_matches",
+      "name": "Waterproof matches",
+      "kind": "tool",
+      "unit": "box",
+      "group": "survival"
+    },
+    {
+      "key": "tool.duct_tape",
+      "name": "Duct tape",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "survival"
+    },
+    {
+      "key": "tool.paracord",
+      "name": "Paracord",
+      "kind": "tool",
+      "unit": "bundle",
+      "group": "survival"
+    },
+    {
+      "key": "tool.tarp",
+      "name": "Tarp",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.work_gloves",
+      "name": "Work gloves",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "survival"
+    },
+    {
+      "key": "tool.n95_masks",
+      "name": "N95 masks",
+      "kind": "tool",
+      "unit": "mask",
+      "group": "survival"
+    },
+    {
+      "key": "tool.whistle",
+      "name": "Whistle",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.fire_extinguisher",
+      "name": "Fire extinguisher",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.utility_shut_off_wrench",
+      "name": "Utility shut-off wrench",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.hatchet",
+      "name": "Hatchet",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.shovel",
+      "name": "Shovel",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.sleeping_bag",
+      "name": "Sleeping bag",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.emergency_blanket",
+      "name": "Emergency blanket",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.tent",
+      "name": "Tent",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.rain_poncho",
+      "name": "Rain poncho",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.hand_warmers",
+      "name": "Hand warmers",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "survival"
+    },
+    {
+      "key": "tool.fire_starter_(ferro_rod)",
+      "name": "Fire starter (ferro rod)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.compass",
+      "name": "Compass",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.paper_maps_of_the_area",
+      "name": "Paper maps of the area",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.signal_mirror",
+      "name": "Signal mirror",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.zip_ties",
+      "name": "Zip ties",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "survival"
+    },
+    {
+      "key": "tool.pry_bar",
+      "name": "Pry bar",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.trauma_kit_with_tourniquet",
+      "name": "Trauma kit with tourniquet",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    },
+    {
+      "key": "tool.go_bag_(backpack)",
+      "name": "Go-bag (backpack)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "survival"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+// Code signing for DayZero.
+//
+// Don't put your own values here. Copy Local.xcconfig.example to Local.xcconfig
+// (gitignored) and set your Apple developer team and a bundle ID prefix you own.
+
+DEVELOPMENT_TEAM =
+BUNDLE_ID_PREFIX = org.example
+
+#include? "Local.xcconfig"
