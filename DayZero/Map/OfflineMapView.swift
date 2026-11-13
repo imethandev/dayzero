@@ -42,7 +42,9 @@ struct OfflineMapView: View {
     @State private var search = ""
     @State private var results: [Place] = []
     @FocusState private var searchFocused: Bool
+    @State private var showDownload = false
     private var location = LocationProvider.shared
+    private var regionStore = MapRegionStore.shared
 
     private var theme: MapBundle.Theme {
         switch themeSetting {
@@ -83,13 +85,28 @@ struct OfflineMapView: View {
             PinForm(pin: pin, latitude: pin.latitude, longitude: pin.longitude)
         }
         .onChange(of: search) { _, text in runSearch(text) }
+        .onChange(of: regionStore.revision) {
+            selection = nil
+            loadStyles()
+        }
+        .sheet(isPresented: $showDownload) {
+            NavigationStack {
+                MapDownloadView(inSheet: true)
+                    .navigationTitle("Offline map")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) { Button("Done") { showDownload = false } }
+                    }
+            }
+        }
         .onChange(of: router.mapFocus) { _, focus in
             if focus != nil { selection = nil }
         }
         .onAppear {
-            if styleURLs.isEmpty {
-                styleURLs = [.light: MapBundle.styleURL(.light), .dark: MapBundle.styleURL(.dark)].compactMapValues { $0 }
-            }
+            if styleURLs.isEmpty { loadStyles() }
+            #if DEBUG
+            if UserDefaults.standard.bool(forKey: "showMapDownload") { showDownload = true }
+            #endif
             isVisible = true
             location.start()
         }
@@ -122,9 +139,10 @@ struct OfflineMapView: View {
                         newPin = NewPinRequest(latitude: c.latitude, longitude: c.longitude)
                     }
                 )
+                .id(regionStore.revision)
             } else if !MapBundle.hasTiles {
-                ContentUnavailableView("Map data missing", systemImage: "map",
-                                       description: Text("Run pipeline/build_offline_data.sh and rebuild the app."))
+                MapDownloadView()
+                    .scrollContentBackground(.hidden)
             } else {
                 ProgressView()
             }
@@ -133,7 +151,7 @@ struct OfflineMapView: View {
         .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .overlay(alignment: .top) { overMapTop }
-        .overlay(alignment: .bottom) { bottomArea }
+        .overlay(alignment: .bottom) { if MapBundle.hasTiles { bottomArea } }
         .overlay(alignment: .center) {
             if let toast {
                 Text(toast)
@@ -150,6 +168,7 @@ struct OfflineMapView: View {
     private var header: some View {
         VStack(spacing: 10) {
             HStack(spacing: 8) {
+            HStack(spacing: 8) {
                 Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
                 TextField("Search places, hospitals, fuel…", text: $search)
                     .focused($searchFocused)
@@ -165,6 +184,18 @@ struct OfflineMapView: View {
             .padding(.horizontal, 12)
             .frame(height: 44)
             .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+
+            Button { showDownload = true } label: {
+                Image(systemName: isOutsideMap ? "exclamationmark.triangle.fill" : "arrow.down.circle.fill")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(isOutsideMap ? Color.white : Color.accentColor)
+                    .frame(width: 44, height: 44)
+                    .background(isOutsideMap ? Color.orange : Color(.secondarySystemGroupedBackground),
+                                in: RoundedRectangle(cornerRadius: 12))
+            }
+            .accessibilityLabel(isOutsideMap ? "You're outside the offline map. Download your area" : "Offline map area")
+            .accessibilityHint("Download or replace the map of your area")
+            }
             .padding(.horizontal, 16)
 
             ScrollView(.horizontal, showsIndicators: false) {
@@ -197,6 +228,11 @@ struct OfflineMapView: View {
             }
         }
         .padding(10)
+    }
+
+    private var isOutsideMap: Bool {
+        guard let c = location.location?.coordinate else { return false }
+        return !MapBundle.contains(c)
     }
 
     @ViewBuilder private var searchResults: some View {
@@ -261,7 +297,7 @@ struct OfflineMapView: View {
                         .buttonStyle(.plain)
                         .accessibilityHint("Copies your coordinates")
                     }
-                    Text(MapBundle.manifest?.attribution ?? "© OpenMapTiles © OpenStreetMap contributors")
+                    Text(MapBundle.attribution)
                         .font(.caption2)
                         .padding(.horizontal, 6).padding(.vertical, 2)
                         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 4))
@@ -362,10 +398,14 @@ struct OfflineMapView: View {
         if location.isDenied {
             flash("Location is off. Turn it on in Settings.")
         } else if let loc = location.location, !MapBundle.contains(loc.coordinate) {
-            flash("You're outside the offline map area")
+            flash("You're outside the offline map. Tap ↓ to download this area.")
         } else {
             flash("Waiting for GPS…")
         }
+    }
+
+    private func loadStyles() {
+        styleURLs = [.light: MapBundle.styleURL(.light), .dark: MapBundle.styleURL(.dark)].compactMapValues { $0 }
     }
 
     private func flash(_ text: String) {

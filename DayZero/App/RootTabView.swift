@@ -6,7 +6,7 @@ enum AppTab: Hashable {
 
 /// Pages opened from the Home tab's tiles.
 enum HomePage: String, Hashable, CaseIterable {
-    case emergency, water, food, babyFood, petFood, powerTools, waterTools, sanitationTools, survivalTools, household, notes, settings
+    case emergency, nearby, tips, water, food, babyFood, petFood, powerTools, communicationTools, waterTools, foodTools, sanitationTools, medicineTools, firstAidTools, shelterTools, navigationTools, securityTools, survivalTools, goBag, household, notes, settings
 }
 
 /// Shared navigation state, so later phases can jump between tabs
@@ -40,7 +40,7 @@ final class AppRouter {
         #endif
     }
 
-    /// Debug: `-initialTab water|food|babyFood|petFood|powerTools|household|notes|emergency|settings` opens that page on Home.
+    /// Debug: `-initialTab water|food|babyFood|petFood|powerTools|communicationTools|household|notes|emergency|settings` opens that page on Home.
     private static var launchPages: [HomePage] {
         #if DEBUG
         return UserDefaults.standard.string(forKey: "initialTab").flatMap(HomePage.init(rawValue:)).map { [$0] } ?? []
@@ -76,6 +76,8 @@ struct RootTabView: View {
     @State private var router = AppRouter()
     @State private var quickActions = QuickActionCenter.shared
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) private var context
+    private var regionStore = MapRegionStore.shared
 
     var body: some View {
         TabView(selection: $router.selectedTab) {
@@ -107,6 +109,14 @@ struct RootTabView: View {
             default:
                 router.openTool = action
             }
+        }
+        // Emergency contacts follow the user's country and downloaded map area.
+        .onChange(of: regionStore.revision) {
+            ContactPacks.sync(context)
+            NearbyContacts.refresh(context)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: RegionSettings.changed)) { _ in
+            ContactPacks.sync(context)
         }
         .onChange(of: scenePhase) { _, phase in
             // The LED turns off when DayZero leaves the screen.

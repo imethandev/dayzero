@@ -17,7 +17,7 @@ enum PrintableReport {
             writer.newPage()
 
             writer.text("DayZero household emergency sheet", .title)
-            writer.text("Printed \(now.formatted(date: .long, time: .shortened)). Call 911 for emergencies.", .caption)
+            writer.text("Printed \(now.formatted(date: .long, time: .shortened)). Call \(ContactPacks.emergencyNumber()) for emergencies.", .caption)
             writer.space(10)
 
             // Summary

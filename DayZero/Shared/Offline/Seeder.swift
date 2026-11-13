@@ -2,7 +2,7 @@ import Foundation
 import OSLog
 import SwiftData
 
-/// Loads the bundled supply catalog and emergency contacts into SwiftData.
+/// Loads the bundled supply catalog and emergency contacts (see ContactPacks) into SwiftData.
 /// Seeding is keyed per item, so it is safe to run on every launch: existing
 /// rows (including ones the user edited or hid) are never touched, and items
 /// added to a later catalog version are inserted with quantity 0.
@@ -26,12 +26,7 @@ enum Seeder {
         let foodGroup: FoodGroup?
     }
 
-    struct ContactsFile: Decodable {
-        let version: Int
-        let contacts: [ContactSeed]
-    }
-
-    struct ContactSeed: Decodable {
+    nonisolated struct ContactSeed: Decodable, Sendable {
         let key: String
         let name: String
         let category: ContactCategory
@@ -41,12 +36,18 @@ enum Seeder {
         let longitude: Double?
         let website: String?
         let notes: String?
+
+        init(key: String, name: String, category: ContactCategory, phone: String? = nil, address: String? = nil,
+             latitude: Double? = nil, longitude: Double? = nil, website: String? = nil, notes: String? = nil) {
+            self.key = key; self.name = name; self.category = category; self.phone = phone; self.address = address
+            self.latitude = latitude; self.longitude = longitude; self.website = website; self.notes = notes
+        }
     }
 
     static func seedIfNeeded(_ context: ModelContext) {
         do {
             try seedCatalog(context)
-            try seedContacts(context)
+            ContactPacks.sync(context)
             if context.hasChanges { try context.save() }
         } catch {
             log.error("Seeding failed: \(error.localizedDescription, privacy: .public)")
@@ -90,15 +91,14 @@ enum Seeder {
         if inserted > 0 { log.info("Seeded \(inserted) catalog items (catalog v\(file.version))") }
     }
 
-    static func seedContacts(_ context: ModelContext) throws {
-        let file: ContactsFile = try loadJSON("emergency_contacts")
-        let existing = try context.fetch(FetchDescriptor<EmergencyContact>())
+    /// Inserts missing built-in contacts and refreshes ones the user hasn't edited.
+    @discardableResult
+    static func apply(_ seeds: [ContactSeed], existing: [EmergencyContact], in context: ModelContext) -> (inserted: Int, refreshed: Int) {
         let byKey = Dictionary(existing.compactMap { c in c.seedKey.map { ($0, c) } }, uniquingKeysWith: { a, _ in a })
         var inserted = 0
         var refreshed = 0
-        for seed in file.contacts {
+        for seed in seeds {
             if let current = byKey[seed.key] {
-                // Refresh built-ins from a newer seed file, unless the user has edited them.
                 guard current.isBuiltIn, !current.userEdited else { continue }
                 let changed = current.name != seed.name || current.phone != (seed.phone ?? "")
                     || current.address != (seed.address ?? "") || current.website != (seed.website ?? "")
@@ -118,22 +118,12 @@ enum Seeder {
                 continue
             }
             context.insert(EmergencyContact(
-                name: seed.name,
-                category: seed.category,
-                phone: seed.phone ?? "",
-                address: seed.address ?? "",
-                latitude: seed.latitude,
-                longitude: seed.longitude,
-                website: seed.website ?? "",
-                notes: seed.notes ?? "",
-                isBuiltIn: true,
-                seedKey: seed.key
-            ))
+                name: seed.name, category: seed.category, phone: seed.phone ?? "", address: seed.address ?? "",
+                latitude: seed.latitude, longitude: seed.longitude, website: seed.website ?? "",
+                notes: seed.notes ?? "", isBuiltIn: true, seedKey: seed.key))
             inserted += 1
         }
-        if inserted + refreshed > 0 {
-            log.info("Emergency contacts v\(file.version): \(inserted) added, \(refreshed) refreshed")
-        }
+        return (inserted, refreshed)
     }
 
     static func loadJSON<T: Decodable>(_ name: String, bundle: Bundle = .main) throws -> T {

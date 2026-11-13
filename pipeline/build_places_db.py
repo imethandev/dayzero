@@ -65,7 +65,7 @@ def centroid(geom):
 
 def address(t):
     street = " ".join(x for x in (t.get("addr:housenumber"), t.get("addr:street")) if x)
-    parts = [street, t.get("addr:city"), " ".join(x for x in ("WA" if t.get("addr:city") else None, t.get("addr:postcode")) if x)]
+    parts = [street, t.get("addr:city"), " ".join(x for x in (t.get("addr:state"), t.get("addr:postcode")) if x)]
     return ", ".join(p for p in parts if p)
 
 

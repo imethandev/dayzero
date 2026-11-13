@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "region": "US",
+  "name": "United States",
+  "verifiedOn": "2026-11-12",
+  "contacts": [
+    {
+      "key": "emergency.911",
+      "name": "Emergency (police, fire, medical)",
+      "category": "emergency",
+      "phone": "911",
+      "notes": "Police, fire and medical emergencies. Text to 911 works in many areas when you can't safely call."
+    },
+    {
+      "key": "poison.national",
+      "name": "Poison Control",
+      "category": "poison",
+      "phone": "1-800-222-1222",
+      "website": "https://www.poison.org",
+      "notes": "Free, confidential, 24/7. Connects you to your local poison center."
+    },
+    {
+      "key": "us.988",
+      "name": "988 Suicide & Crisis Lifeline",
+      "category": "medical",
+      "phone": "988",
+      "website": "https://988lifeline.org",
+      "notes": "Call or text 988, 24/7, for anyone in emotional distress or crisis.",
+      "source": "https://988lifeline.org"
+    },
+    {
+      "key": "us.disaster_distress",
+      "name": "Disaster Distress Helpline",
+      "category": "medical",
+      "phone": "1-800-985-5990",
+      "website": "https://www.samhsa.gov/find-help/disaster-distress-helpline",
+      "notes": "Free crisis counseling for anyone affected by a disaster. Call or text, 24/7.",
+      "source": "https://www.samhsa.gov/find-help/disaster-distress-helpline"
+    },
+    {
+      "key": "us.211",
+      "name": "211 community help",
+      "category": "government",
+      "phone": "211",
+      "website": "https://www.211.org",
+      "notes": "Local help with shelter, food, utilities and disaster recovery.",
+      "source": "https://www.211.org"
+    },
+    {
+      "key": "us.fema",
+      "name": "FEMA Helpline",
+      "category": "government",
+      "phone": "1-800-621-3362",
+      "website": "https://www.disasterassistance.gov",
+      "notes": "Disaster assistance after a federally declared disaster. You can also apply at DisasterAssistance.gov.",
+      "source": "https://www.fema.gov/about/contact"
+    },
+    {
+      "key": "us.red_cross",
+      "name": "American Red Cross",
+      "category": "shelters",
+      "phone": "1-800-733-2767",
+      "website": "https://www.redcross.org",
+      "notes": "Emergency shelters, supplies and help reconnecting with family after disasters.",
+      "source": "https://www.redcross.org/contact-us.html"
+    }
+  ]
+}

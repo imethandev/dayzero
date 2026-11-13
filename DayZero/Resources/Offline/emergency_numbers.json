@@ -1,0 +1,308 @@
+{
+  "version": 1,
+  "verifiedOn": "2026-11-12",
+  "note": "National emergency numbers. Countries not listed fall back to 112 and the iPhone's Emergency SOS, which dials the local number.",
+  "countries": [
+    {
+      "code": "US",
+      "general": "911"
+    },
+    {
+      "code": "CA",
+      "general": "911"
+    },
+    {
+      "code": "MX",
+      "general": "911"
+    },
+    {
+      "code": "GB",
+      "general": "999",
+      "notes": "112 also works."
+    },
+    {
+      "code": "IE",
+      "general": "112",
+      "notes": "999 also works."
+    },
+    {
+      "code": "DE",
+      "general": "112",
+      "police": "110"
+    },
+    {
+      "code": "FR",
+      "general": "112",
+      "police": "17",
+      "fire": "18",
+      "ambulance": "15"
+    },
+    {
+      "code": "ES",
+      "general": "112"
+    },
+    {
+      "code": "IT",
+      "general": "112"
+    },
+    {
+      "code": "PT",
+      "general": "112"
+    },
+    {
+      "code": "NL",
+      "general": "112"
+    },
+    {
+      "code": "BE",
+      "general": "112"
+    },
+    {
+      "code": "LU",
+      "general": "112"
+    },
+    {
+      "code": "SE",
+      "general": "112"
+    },
+    {
+      "code": "DK",
+      "general": "112"
+    },
+    {
+      "code": "FI",
+      "general": "112"
+    },
+    {
+      "code": "IS",
+      "general": "112"
+    },
+    {
+      "code": "PL",
+      "general": "112"
+    },
+    {
+      "code": "SK",
+      "general": "112"
+    },
+    {
+      "code": "HU",
+      "general": "112"
+    },
+    {
+      "code": "RO",
+      "general": "112"
+    },
+    {
+      "code": "BG",
+      "general": "112"
+    },
+    {
+      "code": "HR",
+      "general": "112"
+    },
+    {
+      "code": "SI",
+      "general": "112"
+    },
+    {
+      "code": "EE",
+      "general": "112"
+    },
+    {
+      "code": "LV",
+      "general": "112"
+    },
+    {
+      "code": "LT",
+      "general": "112"
+    },
+    {
+      "code": "TR",
+      "general": "112"
+    },
+    {
+      "code": "RU",
+      "general": "112"
+    },
+    {
+      "code": "AT",
+      "general": "112",
+      "police": "133",
+      "fire": "122",
+      "ambulance": "144"
+    },
+    {
+      "code": "CH",
+      "general": "112",
+      "police": "117",
+      "fire": "118",
+      "ambulance": "144"
+    },
+    {
+      "code": "NO",
+      "police": "112",
+      "fire": "110",
+      "ambulance": "113"
+    },
+    {
+      "code": "CZ",
+      "general": "112",
+      "police": "158",
+      "fire": "150",
+      "ambulance": "155"
+    },
+    {
+      "code": "GR",
+      "general": "112",
+      "police": "100",
+      "fire": "199",
+      "ambulance": "166"
+    },
+    {
+      "code": "UA",
+      "general": "112",
+      "police": "102",
+      "fire": "101",
+      "ambulance": "103"
+    },
+    {
+      "code": "IL",
+      "police": "100",
+      "fire": "102",
+      "ambulance": "101"
+    },
+    {
+      "code": "AE",
+      "police": "999",
+      "fire": "997",
+      "ambulance": "998"
+    },
+    {
+      "code": "SA",
+      "general": "911"
+    },
+    {
+      "code": "EG",
+      "police": "122",
+      "fire": "180",
+      "ambulance": "123"
+    },
+    {
+      "code": "ZA",
+      "general": "112",
+      "police": "10111",
+      "ambulance": "10177",
+      "notes": "112 works from mobile phones."
+    },
+    {
+      "code": "KE",
+      "general": "999",
+      "notes": "112 also works."
+    },
+    {
+      "code": "NG",
+      "general": "112"
+    },
+    {
+      "code": "IN",
+      "general": "112",
+      "police": "100",
+      "fire": "101",
+      "ambulance": "108"
+    },
+    {
+      "code": "CN",
+      "police": "110",
+      "fire": "119",
+      "ambulance": "120"
+    },
+    {
+      "code": "HK",
+      "general": "999"
+    },
+    {
+      "code": "MY",
+      "general": "999"
+    },
+    {
+      "code": "PH",
+      "general": "911"
+    },
+    {
+      "code": "ID",
+      "general": "112"
+    },
+    {
+      "code": "TW",
+      "police": "110",
+      "fire": "119",
+      "ambulance": "119"
+    },
+    {
+      "code": "JP",
+      "police": "110",
+      "fire": "119",
+      "ambulance": "119"
+    },
+    {
+      "code": "KR",
+      "police": "112",
+      "fire": "119",
+      "ambulance": "119"
+    },
+    {
+      "code": "SG",
+      "police": "999",
+      "fire": "995",
+      "ambulance": "995"
+    },
+    {
+      "code": "TH",
+      "police": "191",
+      "fire": "199",
+      "ambulance": "1669"
+    },
+    {
+      "code": "VN",
+      "police": "113",
+      "fire": "114",
+      "ambulance": "115"
+    },
+    {
+      "code": "AU",
+      "general": "000",
+      "notes": "112 also works from mobile phones."
+    },
+    {
+      "code": "NZ",
+      "general": "111"
+    },
+    {
+      "code": "BR",
+      "police": "190",
+      "fire": "193",
+      "ambulance": "192"
+    },
+    {
+      "code": "AR",
+      "police": "911",
+      "fire": "100",
+      "ambulance": "107"
+    },
+    {
+      "code": "CL",
+      "police": "133",
+      "fire": "132",
+      "ambulance": "131"
+    },
+    {
+      "code": "CO",
+      "general": "123"
+    },
+    {
+      "code": "CR",
+      "general": "911"
+    }
+  ]
+}

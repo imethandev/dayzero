@@ -105,11 +105,12 @@ struct MapLibreView: UIViewRepresentable {
         private var appliedLayers: Set<FacilityLayer>?
         private var appliedContacts: [MapMarker]?
         private var appliedPins: [MapMarker]?
-        private static let facilities: [Place] = PlacesDatabase.shared.allFacilities()
+        private lazy var facilities: [Place] = PlacesDatabase.shared.allFacilities()
 
         static let facilityLayerID = "dz-facilities"
         static let minorFacilityLayerID = "dz-facilities-minor"
-        /// Shown from zoom 9; the rest (clinics, pharmacies, fuel, water) from zoom 13 to avoid clutter.
+        /// With every category on, these show from zoom 9 and the rest (clinics, pharmacies, fuel,
+        /// water) from zoom 13 to avoid clutter. A single chosen category shows from zoom 9.
         static let majorKinds: Set<PlaceKind> = [.hospital, .fire_station, .police, .shelter]
         static let contactLayerID = "dz-contacts"
         static let pinLayerID = "dz-pins"
@@ -159,7 +160,7 @@ struct MapLibreView: UIViewRepresentable {
         func mapView(_ mapView: MLNMapView, didFinishLoading style: MLNStyle) {
             for (name, image) in MapIcons.all { style.setImage(image, forName: name) }
 
-            let facilityFeatures: [MLNPointFeature] = Self.facilities.compactMap { place in
+            let facilityFeatures: [MLNPointFeature] = facilities.compactMap { place in
                 guard let layer = place.kind.layer else { return nil }
                 let f = MLNPointFeature()
                 f.coordinate = place.coordinate
@@ -221,10 +222,18 @@ struct MapLibreView: UIViewRepresentable {
                   appliedLayers != parent.enabledLayers else { return }
             appliedLayers = parent.enabledLayers
             let layers = parent.enabledLayers.map(\.rawValue)
-            major.isVisible = !layers.isEmpty
-            minor.isVisible = !layers.isEmpty
-            major.predicate = NSPredicate(format: "layer IN %@ AND major == YES", layers)
-            minor.predicate = NSPredicate(format: "layer IN %@ AND major == NO", layers)
+            if parent.enabledLayers.count == FacilityLayer.allCases.count {
+                // Everything on: hospitals, fire, police and shelters from zoom 9, the busier kinds from zoom 13.
+                major.isVisible = true
+                minor.isVisible = true
+                major.predicate = NSPredicate(format: "major == YES")
+                minor.predicate = NSPredicate(format: "major == NO")
+            } else {
+                // A chosen category (Fuel, Pharmacies…) shows from zoom 9 too, so it never looks empty.
+                major.isVisible = !layers.isEmpty
+                minor.isVisible = false
+                major.predicate = NSPredicate(format: "layer IN %@", layers)
+            }
         }
 
         func applyMarkers() {

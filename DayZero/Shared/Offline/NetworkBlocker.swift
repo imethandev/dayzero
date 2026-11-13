@@ -47,6 +47,17 @@ enum NetworkBlocker {
         #endif
     }
 
+    /// A session for the actions the user starts on purpose (downloading a map of their area).
+    /// It skips the debug blocker; everything else in the app stays blocked.
+    static func userInitiatedSession() -> URLSession {
+        let config = URLSessionConfiguration.ephemeral
+        config.protocolClasses = (config.protocolClasses ?? []).filter { $0 != BlockingURLProtocol.self }
+        config.httpMaximumConnectionsPerHost = 4
+        config.waitsForConnectivity = false
+        Logger.network.notice("User-initiated network session created (map download)")
+        return URLSession(configuration: config)
+    }
+
     fileprivate static func record(_ url: URL?) {
         let entry = BlockedRequest(url: url?.absoluteString ?? "<nil>", date: .now)
         lock.lock()

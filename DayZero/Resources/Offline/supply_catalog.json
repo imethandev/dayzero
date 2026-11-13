@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 11,
   "items": [
     {
       "key": "food.rice",
@@ -324,13 +324,6 @@
       "group": "power"
     },
     {
-      "key": "tool.battery_or_hand_crank_radio",
-      "name": "Battery or hand-crank radio",
-      "kind": "tool",
-      "unit": "each",
-      "group": "power"
-    },
-    {
       "key": "tool.aa_batteries",
       "name": "AA batteries",
       "kind": "tool",
@@ -422,6 +415,62 @@
       "group": "power"
     },
     {
+      "key": "tool.fuel_gasoline",
+      "name": "Gasoline",
+      "kind": "tool",
+      "unit": "gallon",
+      "group": "power"
+    },
+    {
+      "key": "tool.fuel_diesel",
+      "name": "Diesel",
+      "kind": "tool",
+      "unit": "gallon",
+      "group": "power"
+    },
+    {
+      "key": "tool.fuel_propane_20lb",
+      "name": "Propane tank (20 lb)",
+      "kind": "tool",
+      "unit": "tank",
+      "group": "power"
+    },
+    {
+      "key": "tool.fuel_kerosene",
+      "name": "Kerosene",
+      "kind": "tool",
+      "unit": "gallon",
+      "group": "power"
+    },
+    {
+      "key": "tool.fuel_stabilizer",
+      "name": "Fuel stabilizer",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "power"
+    },
+    {
+      "key": "tool.fuel_can",
+      "name": "Approved fuel can",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.fuel_siphon_pump",
+      "name": "Siphon or fuel transfer pump",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
+      "key": "tool.co_detector",
+      "name": "Battery carbon monoxide detector",
+      "kind": "tool",
+      "unit": "each",
+      "group": "power"
+    },
+    {
       "key": "tool.extension_cord_(outdoor)",
       "name": "Extension cord (outdoor)",
       "kind": "tool",
@@ -441,6 +490,132 @@
       "kind": "tool",
       "unit": "candle",
       "group": "power"
+    },
+    {
+      "key": "tool.battery_or_hand_crank_radio",
+      "name": "AM/FM radio (battery or hand-crank)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.noaa_weather_radio",
+      "name": "NOAA weather alert radio",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.frs_walkie_talkies",
+      "name": "FRS walkie-talkies (no license)",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "communication"
+    },
+    {
+      "key": "tool.gmrs_radio",
+      "name": "GMRS radio (FCC license)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.ham_radio_handheld",
+      "name": "Ham radio handheld (license required)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.ham_radio_mobile",
+      "name": "Ham radio mobile or base station",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.cb_radio",
+      "name": "CB radio",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.meshtastic_node",
+      "name": "Meshtastic LoRa mesh node",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.satellite_messenger",
+      "name": "Satellite messenger",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.personal_locator_beacon",
+      "name": "Personal locator beacon (PLB)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.scanner_radio",
+      "name": "Police and fire scanner",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.radio_spare_antenna",
+      "name": "Spare or upgraded radio antenna",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.radio_battery_packs",
+      "name": "Spare radio battery packs",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.frequency_card",
+      "name": "Printed frequency and channel card",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.printed_contact_list",
+      "name": "Printed contact list",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.whistle",
+      "name": "Whistle",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.signal_mirror",
+      "name": "Signal mirror",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
+    },
+    {
+      "key": "tool.notepad_and_markers",
+      "name": "Notepad, pens and permanent marker",
+      "kind": "tool",
+      "unit": "each",
+      "group": "communication"
     },
     {
       "key": "tool.water_filter",
@@ -660,20 +835,6 @@
       "group": "sanitation"
     },
     {
-      "key": "tool.plastic_sheeting",
-      "name": "Plastic sheeting",
-      "kind": "tool",
-      "unit": "roll",
-      "group": "survival"
-    },
-    {
-      "key": "tool.first_aid_kit",
-      "name": "First aid kit",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
       "key": "tool.multi_tool",
       "name": "Multi-tool",
       "kind": "tool",
@@ -685,27 +846,6 @@
       "name": "Knife",
       "kind": "tool",
       "unit": "each",
-      "group": "survival"
-    },
-    {
-      "key": "tool.manual_can_opener",
-      "name": "Manual can opener",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
-      "key": "tool.camp_stove",
-      "name": "Camp stove",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
-      "key": "tool.fuel_canister",
-      "name": "Fuel canister",
-      "kind": "tool",
-      "unit": "canister",
       "group": "survival"
     },
     {
@@ -730,45 +870,10 @@
       "group": "survival"
     },
     {
-      "key": "tool.paracord",
-      "name": "Paracord",
-      "kind": "tool",
-      "unit": "bundle",
-      "group": "survival"
-    },
-    {
-      "key": "tool.tarp",
-      "name": "Tarp",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
       "key": "tool.work_gloves",
       "name": "Work gloves",
       "kind": "tool",
       "unit": "pair",
-      "group": "survival"
-    },
-    {
-      "key": "tool.n95_masks",
-      "name": "N95 masks",
-      "kind": "tool",
-      "unit": "mask",
-      "group": "survival"
-    },
-    {
-      "key": "tool.whistle",
-      "name": "Whistle",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
-      "key": "tool.fire_extinguisher",
-      "name": "Fire extinguisher",
-      "kind": "tool",
-      "unit": "each",
       "group": "survival"
     },
     {
@@ -793,64 +898,183 @@
       "group": "survival"
     },
     {
+      "key": "tool.tent",
+      "name": "Tent",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.tube_tent",
+      "name": "Tube tent",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.emergency_bivvy",
+      "name": "Emergency bivvy sack",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.tarp",
+      "name": "Tarp",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.plastic_sheeting",
+      "name": "Plastic sheeting",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.paracord",
+      "name": "Paracord",
+      "kind": "tool",
+      "unit": "bundle",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.bungee_cords",
+      "name": "Bungee cords",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.tent_stakes",
+      "name": "Spare tent stakes",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "shelter"
+    },
+    {
       "key": "tool.sleeping_bag",
       "name": "Sleeping bag",
       "kind": "tool",
       "unit": "each",
-      "group": "survival"
+      "group": "shelter"
+    },
+    {
+      "key": "tool.sleeping_pad",
+      "name": "Sleeping pad",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.wool_blankets",
+      "name": "Wool or fleece blankets",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
     },
     {
       "key": "tool.emergency_blanket",
       "name": "Emergency blanket",
       "kind": "tool",
       "unit": "each",
-      "group": "survival"
+      "group": "shelter"
     },
     {
-      "key": "tool.tent",
-      "name": "Tent",
+      "key": "tool.thermal_base_layers",
+      "name": "Thermal base layers",
       "kind": "tool",
-      "unit": "each",
-      "group": "survival"
+      "unit": "set",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.warm_hats_gloves",
+      "name": "Warm hats and gloves",
+      "kind": "tool",
+      "unit": "set",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.wool_socks",
+      "name": "Wool socks",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.waterproof_boots",
+      "name": "Waterproof boots",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "shelter"
     },
     {
       "key": "tool.rain_poncho",
       "name": "Rain poncho",
       "kind": "tool",
       "unit": "each",
-      "group": "survival"
+      "group": "shelter"
     },
     {
       "key": "tool.hand_warmers",
       "name": "Hand warmers",
       "kind": "tool",
       "unit": "pair",
-      "group": "survival"
+      "group": "shelter"
+    },
+    {
+      "key": "tool.indoor_safe_heater",
+      "name": "Indoor-rated propane heater",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.window_insulation_kit",
+      "name": "Window insulation film kit",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.door_draft_stoppers",
+      "name": "Door draft stoppers",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.plywood_sheets",
+      "name": "Plywood for broken windows",
+      "kind": "tool",
+      "unit": "sheet",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.battery_fan",
+      "name": "Battery-powered fan",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.cooling_towels",
+      "name": "Cooling towels",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
+    },
+    {
+      "key": "tool.mosquito_net",
+      "name": "Mosquito net",
+      "kind": "tool",
+      "unit": "each",
+      "group": "shelter"
     },
     {
       "key": "tool.fire_starter_(ferro_rod)",
       "name": "Fire starter (ferro rod)",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
-      "key": "tool.compass",
-      "name": "Compass",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
-      "key": "tool.paper_maps_of_the_area",
-      "name": "Paper maps of the area",
-      "kind": "tool",
-      "unit": "each",
-      "group": "survival"
-    },
-    {
-      "key": "tool.signal_mirror",
-      "name": "Signal mirror",
       "kind": "tool",
       "unit": "each",
       "group": "survival"
@@ -870,18 +1094,858 @@
       "group": "survival"
     },
     {
+      "key": "tool.med_prescriptions",
+      "name": "Prescription medications (extra supply)",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_prescription_list",
+      "name": "Printed list of medicines and allergies",
+      "kind": "tool",
+      "unit": "each",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_pain_reliever",
+      "name": "Pain and fever reliever",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_childrens_fever",
+      "name": "Children's fever reducer",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_antihistamine",
+      "name": "Allergy medicine (antihistamine)",
+      "kind": "tool",
+      "unit": "box",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_epinephrine",
+      "name": "Epinephrine auto-injector (if prescribed)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_antidiarrheal",
+      "name": "Anti-diarrheal medicine",
+      "kind": "tool",
+      "unit": "box",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_antacid",
+      "name": "Antacids",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_oral_rehydration",
+      "name": "Oral rehydration salts",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_glucose_tablets",
+      "name": "Glucose tablets",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_spare_glasses",
+      "name": "Spare eyeglasses or contacts",
+      "kind": "tool",
+      "unit": "each",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.med_hearing_aid_batteries",
+      "name": "Hearing aid batteries",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "medicine"
+    },
+    {
+      "key": "tool.compass",
+      "name": "Compass",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.paper_maps_of_the_area",
+      "name": "Paper maps of the area",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_road_atlas",
+      "name": "State road atlas",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_topo_maps",
+      "name": "Topographic maps",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_evacuation_routes",
+      "name": "Printed evacuation routes",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_map_case",
+      "name": "Waterproof map case",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_protractor",
+      "name": "Map protractor or ruler",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_handheld_gps",
+      "name": "Handheld GPS unit",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_watch",
+      "name": "Analog or solar watch",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_binoculars",
+      "name": "Binoculars",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_pace_beads",
+      "name": "Pace counter beads",
+      "kind": "tool",
+      "unit": "each",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.nav_flagging_tape",
+      "name": "Flagging tape",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "navigation"
+    },
+    {
+      "key": "tool.sec_door_bar",
+      "name": "Door security bar",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_door_wedge_alarm",
+      "name": "Door wedge alarm",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_window_alarms",
+      "name": "Battery door and window alarms",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_solar_motion_lights",
+      "name": "Solar motion-sensor lights",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_padlocks",
+      "name": "Padlocks",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_cable_lock",
+      "name": "Cable lock",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_spare_keys",
+      "name": "Spare keys",
+      "kind": "tool",
+      "unit": "set",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_fireproof_safe",
+      "name": "Fireproof and waterproof safe",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_documents",
+      "name": "Copies of IDs, insurance and deeds",
+      "kind": "tool",
+      "unit": "set",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_cash",
+      "name": "Cash in small bills",
+      "kind": "tool",
+      "unit": "envelope",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_pepper_spray",
+      "name": "Pepper spray",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_air_horn",
+      "name": "Air horn",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_reflective_vest",
+      "name": "Reflective safety vest",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.fire_extinguisher",
+      "name": "Fire extinguisher",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_smoke_detectors",
+      "name": "Battery smoke detectors",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.sec_escape_ladder",
+      "name": "Fire escape ladder",
+      "kind": "tool",
+      "unit": "each",
+      "group": "security"
+    },
+    {
+      "key": "tool.camp_stove",
+      "name": "Camp stove",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.fuel_canister",
+      "name": "Fuel canister",
+      "kind": "tool",
+      "unit": "canister",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_butane_stove",
+      "name": "Butane stove",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_butane_canisters",
+      "name": "Butane canisters",
+      "kind": "tool",
+      "unit": "canister",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_wood_stove",
+      "name": "Wood-burning camp stove",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_charcoal_grill",
+      "name": "Charcoal grill and charcoal (outdoor only)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_long_lighter",
+      "name": "Long-reach lighter",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.manual_can_opener",
+      "name": "Manual can opener",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_spare_can_opener",
+      "name": "Spare can opener",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_cook_set",
+      "name": "Cooking pot and pan set",
+      "kind": "tool",
+      "unit": "set",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_dutch_oven",
+      "name": "Cast iron Dutch oven",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_utensils",
+      "name": "Cooking utensils (spatula, ladle, tongs)",
+      "kind": "tool",
+      "unit": "set",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_knife_board",
+      "name": "Kitchen knife and cutting board",
+      "kind": "tool",
+      "unit": "set",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_pot_holders",
+      "name": "Pot holders or oven mitts",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_mess_kits",
+      "name": "Reusable plates, cups and cutlery",
+      "kind": "tool",
+      "unit": "set",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_paper_plates",
+      "name": "Paper plates, cups and napkins",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_thermos",
+      "name": "Insulated bottle or thermos",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_aluminum_foil",
+      "name": "Heavy-duty aluminum foil",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_zip_bags",
+      "name": "Zip-top bags",
+      "kind": "tool",
+      "unit": "box",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_storage_containers",
+      "name": "Food storage containers",
+      "kind": "tool",
+      "unit": "set",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_cooler",
+      "name": "Cooler",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_ice_packs",
+      "name": "Reusable ice packs",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_fridge_thermometer",
+      "name": "Fridge and freezer thermometer",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_grade_buckets",
+      "name": "Food-grade buckets with lids",
+      "kind": "tool",
+      "unit": "each",
+      "group": "food"
+    },
+    {
+      "key": "tool.food_mylar_bags",
+      "name": "Mylar bags and oxygen absorbers",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "food"
+    },
+    {
+      "key": "tool.go_bag_(backpack)",
+      "name": "Go-bag backpack",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_water_bottles",
+      "name": "Bottled water (3 days)",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_water_straw",
+      "name": "Water filter straw",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_ration_bars",
+      "name": "Emergency ration bars",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_ready_meals",
+      "name": "Ready-to-eat meals",
+      "kind": "tool",
+      "unit": "meal",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_spork",
+      "name": "Spork or utensil set",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_headlamp",
+      "name": "Headlamp",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_batteries",
+      "name": "Spare batteries",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_power_bank",
+      "name": "Power bank and charging cable",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_radio",
+      "name": "Pocket hand-crank or battery radio",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_first_aid",
+      "name": "Compact first aid kit",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_medications",
+      "name": "7-day supply of medications",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_glasses",
+      "name": "Spare glasses or contacts",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_documents",
+      "name": "Copies of IDs and insurance (waterproof bag)",
+      "kind": "tool",
+      "unit": "set",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_cash",
+      "name": "Cash in small bills",
+      "kind": "tool",
+      "unit": "envelope",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_contacts_map",
+      "name": "Printed contact list and local map",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_keys",
+      "name": "Spare house and car keys",
+      "kind": "tool",
+      "unit": "set",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_clothes",
+      "name": "Change of clothes",
+      "kind": "tool",
+      "unit": "set",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_socks",
+      "name": "Extra socks",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_rain_poncho",
+      "name": "Rain poncho",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_hat_gloves",
+      "name": "Warm hat and gloves",
+      "kind": "tool",
+      "unit": "set",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_shoes",
+      "name": "Sturdy shoes",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_emergency_blanket",
+      "name": "Emergency blanket",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_hand_warmers",
+      "name": "Hand warmers",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_multi_tool",
+      "name": "Multi-tool",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_whistle",
+      "name": "Whistle",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_fire",
+      "name": "Lighter and waterproof matches",
+      "kind": "tool",
+      "unit": "set",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_duct_tape",
+      "name": "Small roll of duct tape",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_work_gloves",
+      "name": "Work gloves",
+      "kind": "tool",
+      "unit": "pair",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_masks",
+      "name": "N95 masks",
+      "kind": "tool",
+      "unit": "mask",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_toothbrush",
+      "name": "Toothbrush and toothpaste",
+      "kind": "tool",
+      "unit": "set",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_sanitizer",
+      "name": "Hand sanitizer",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_wipes",
+      "name": "Wet wipes",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_toilet_paper",
+      "name": "Toilet paper",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_hygiene",
+      "name": "Feminine hygiene products",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_trash_bags",
+      "name": "Small trash bags",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_notepad",
+      "name": "Notepad and pen",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_kids_comfort",
+      "name": "Comfort item or game for kids",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.gobag_pet_kit",
+      "name": "Pet leash, bowl and food",
+      "kind": "tool",
+      "unit": "each",
+      "group": "goBag"
+    },
+    {
+      "key": "tool.first_aid_kit",
+      "name": "First aid kit",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
       "key": "tool.trauma_kit_with_tourniquet",
       "name": "Trauma kit with tourniquet",
       "kind": "tool",
       "unit": "each",
-      "group": "survival"
+      "group": "firstAid"
     },
     {
-      "key": "tool.go_bag_(backpack)",
-      "name": "Go-bag (backpack)",
+      "key": "tool.med_adhesive_bandages",
+      "name": "Adhesive bandages",
+      "kind": "tool",
+      "unit": "box",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_gauze",
+      "name": "Gauze pads and rolls",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_hemostatic_gauze",
+      "name": "Hemostatic gauze",
       "kind": "tool",
       "unit": "each",
-      "group": "survival"
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_medical_tape",
+      "name": "Medical tape",
+      "kind": "tool",
+      "unit": "roll",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_elastic_bandage",
+      "name": "Elastic bandage",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_burn_dressing",
+      "name": "Burn gel or dressings",
+      "kind": "tool",
+      "unit": "pack",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_antibiotic_ointment",
+      "name": "Antibiotic ointment",
+      "kind": "tool",
+      "unit": "tube",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_splint",
+      "name": "Moldable splint",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_cold_packs",
+      "name": "Instant cold packs",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_trauma_shears",
+      "name": "Trauma shears",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_tweezers",
+      "name": "Tweezers",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_thermometer",
+      "name": "Thermometer",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_pulse_oximeter",
+      "name": "Pulse oximeter",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_eye_wash",
+      "name": "Eye wash or saline",
+      "kind": "tool",
+      "unit": "bottle",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.n95_masks",
+      "name": "N95 masks",
+      "kind": "tool",
+      "unit": "mask",
+      "group": "firstAid"
+    },
+    {
+      "key": "tool.med_first_aid_manual",
+      "name": "First aid manual (printed)",
+      "kind": "tool",
+      "unit": "each",
+      "group": "firstAid"
     }
   ]
 }

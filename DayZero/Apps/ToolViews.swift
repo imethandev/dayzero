@@ -209,13 +209,13 @@ struct SOSView: View {
                 ])
 
                 InfoCard(title: "Keep in mind", tint: .orange, rows: [
-                    ("phone.down.fill", "SOS does not call 911 or send a message or your location to anyone. It is a light signal only."),
+                    ("phone.down.fill", "SOS does not call emergency services or send a message or your location to anyone. It is a light signal only."),
                     ("arrow.uturn.backward", "It stops if you leave DayZero or press the side button to lock the phone. Keep the app open."),
                     ("battery.25", "The flashlight uses a lot of battery. Use it when someone could see it, mostly at night."),
                     ("eye.fill", "Hold the phone up with the back facing the people or aircraft you want to reach."),
                 ])
 
-                CallButton(label: "Call 911", phone: "911")
+                EmergencyCallButton(prominent: false)
                 Text("Calling needs cell service, or Wi-Fi calling.")
                     .font(.caption).foregroundStyle(.secondary)
             }
@@ -445,7 +445,7 @@ struct DialerView: View {
                 Text("Opens the iPhone dialer. Calling needs cell service, or Wi-Fi calling.")
             }
             Section {
-                CallButton(label: "Call 911", phone: "911", prominent: true)
+                EmergencyCallButton()
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(Color.clear)
             }

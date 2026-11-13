@@ -15,6 +15,7 @@ struct EmergencyView: View {
     @State private var showHidden = false
     @State private var showAdd = false
     @State private var location = LocationProvider.shared
+    private var region = RegionModel.shared
 
     private var visible: [EmergencyContact] {
         let q = search.trimmingCharacters(in: .whitespaces)
@@ -28,31 +29,22 @@ struct EmergencyView: View {
     var body: some View {
         let contacts = visible
         let favorites = contacts.filter(\.isFavorite)
+        let nearby = contacts.filter { !$0.isFavorite && $0.isNearby }
 
         List {
-                // 911 is always one tap away, whatever the filter.
-                if search.isEmpty {
-                    Section {
-                        CallButton(label: "Call 911", phone: "911", prominent: true)
-                            .listRowInsets(EdgeInsets())
-                            .listRowBackground(Color.clear)
-                    }
-                }
-
                 if search.isEmpty {
                     Section {
                         NavigationLink {
-                            NearbyFacilitiesView()
+                            RegionPickerView()
                         } label: {
-                            Label {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text("Nearest hospitals, fire & police").font(.headline)
-                                    Text("From the offline map data").font(.caption).foregroundStyle(.secondary)
-                                }
-                            } icon: {
-                                Image(systemName: "location.magnifyingglass").foregroundStyle(.red)
+                            LabeledContent {
+                                Text(region.current.displayName)
+                            } label: {
+                                Label("Country", systemImage: "globe")
                             }
                         }
+                    } footer: {
+                        Text("Not sure of the number? Your iPhone's Emergency SOS (hold the side button and a volume button) calls local emergency services anywhere.")
                     }
                 }
 
@@ -62,10 +54,20 @@ struct EmergencyView: View {
                     }
                 }
 
+                if sort == .category, !nearby.isEmpty {
+                    Section {
+                        ForEach(nearby) { ContactLink(contact: $0, distance: distance(for: $0), showCategory: true) }
+                    } header: {
+                        Text("Near you")
+                    } footer: {
+                        Text("Closest hospitals, police and fire stations with phone numbers, from your downloaded map (OpenStreetMap).")
+                    }
+                }
+
                 switch sort {
                 case .category:
                     ForEach(ContactCategory.allCases) { category in
-                        let group = contacts.filter { $0.category == category && !$0.isFavorite }
+                        let group = contacts.filter { $0.category == category && !$0.isFavorite && !$0.isNearby }
                         if !group.isEmpty {
                             Section(category.title) {
                                 ForEach(group) { ContactLink(contact: $0, distance: distance(for: $0)) }
@@ -88,7 +90,7 @@ struct EmergencyView: View {
                     ContentUnavailableView.search(text: search)
                 }
             }
-            .navigationTitle("Emergency")
+            .navigationTitle("Contacts & Help Lines")
             .navigationDestination(for: EmergencyContact.self) { ContactDetailView(contact: $0) }
             .searchable(text: $search, prompt: "Search contacts")
             .toolbar {
@@ -203,5 +205,70 @@ enum PhoneLink {
         if phone.trimmingCharacters(in: .whitespaces).hasPrefix("+") { digits = "+" + digits }
         guard !digits.isEmpty else { return nil }
         return URL(string: "tel:\(digits)")
+    }
+}
+
+extension EmergencyContact {
+    /// Added from the downloaded map's places (see NearbyContacts).
+    var isNearby: Bool { seedKey?.hasPrefix(NearbyContacts.keyPrefix) == true }
+}
+
+// MARK: - Country
+
+/// Pick the country used for emergency numbers and national contacts, or let DayZero detect it.
+struct RegionPickerView: View {
+    @State private var query = ""
+    private var region = RegionModel.shared
+
+    private static let countries: [(code: String, name: String)] = Locale.Region.isoRegions
+        .filter { $0.identifier.count == 2 && $0.identifier.allSatisfy(\.isLetter) }
+        .compactMap { r in Locale.current.localizedString(forRegionCode: r.identifier).map { (r.identifier, $0) } }
+        .sorted { $0.name.localizedCompare($1.name) == .orderedAscending }
+
+    private var filtered: [(code: String, name: String)] {
+        let q = query.trimmingCharacters(in: .whitespaces)
+        return q.isEmpty ? Self.countries : Self.countries.filter { $0.name.localizedCaseInsensitiveContains(q) }
+    }
+
+    var body: some View {
+        let manual = region.current.source == .manual ? region.current.country : nil
+        List {
+            if query.isEmpty {
+                Section {
+                    Button {
+                        RegionSettings.setManual(country: nil)
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Automatic").foregroundStyle(.primary)
+                                let d = RegionSettings.detected
+                                Text("\(d.displayName) · \(d.sourceText)").font(.caption).foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            if manual == nil { Image(systemName: "checkmark").foregroundStyle(.tint) }
+                        }
+                    }
+                } footer: {
+                    Text("Sets the number on the Call button and the national contacts. Downloading a map of your area detects the country automatically.")
+                }
+            }
+            Section("Countries") {
+                ForEach(filtered, id: \.code) { c in
+                    Button {
+                        RegionSettings.setManual(country: c.code)
+                    } label: {
+                        HStack {
+                            Text(c.name).foregroundStyle(.primary)
+                            Spacer()
+                            Text(ContactPacks.emergencyNumber(for: UserRegion(country: c.code, source: .manual)))
+                                .monospacedDigit().foregroundStyle(.secondary)
+                            if manual == c.code { Image(systemName: "checkmark").foregroundStyle(.tint) }
+                        }
+                    }
+                }
+            }
+        }
+        .navigationTitle("Country")
+        .searchable(text: $query, prompt: "Search countries")
     }
 }

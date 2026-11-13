@@ -77,7 +77,8 @@ struct SuppliesView: View {
                                 && (toolGroup == nil || $0.toolGroup == toolGroup)
                                 && (foodGroup == nil || $0.foodGroup == foodGroup) }
                             ToolsHeader(stocked: group.filter { $0.quantity > 0 }.count, total: group.count,
-                                        label: "items", note: checklistNote)
+                                        label: "items", note: checklistNote,
+                                        extra: toolGroup == .power ? FuelSummary.line(allItems) : nil)
                         } else {
                             SummaryHeader(summary: summary, kinds: kinds, redBelow: redBelow, amberBelow: amberBelow) {
                                 router.open(.household)
@@ -168,7 +169,19 @@ struct SuppliesView: View {
         switch foodGroup {
         case .baby: "Baby food counts toward days of food on the Food page. Items at 0 show what's still missing."
         case .pet: "Pet food doesn't change the household's days of food. Plan about 2 weeks for each pet."
-        default: "Tools don't change days of food and water. Items at 0 show what's still missing."
+        default:
+            switch toolGroup {
+            case .power: "Stored gasoline goes stale in about 3–6 months (diesel 6–12) unless stabilized. Set an expiry date on fuel to get a reminder."
+            case .food: "Cook outside only: stoves, grills and charcoal make carbon monoxide. In an outage, a closed fridge keeps food cold about 4 hours and a full freezer about 48."
+            case .goBag: "Pack enough for 72 hours and keep the bag by the door or in the car. Go-bag items don't count toward days at home. Check food, water, medicine and batteries every 6 months."
+            case .medicine: "Medicines expire, so set expiry dates to get reminders. Keep at least 2 weeks of prescriptions and a printed list of each person's medicines and allergies."
+            case .navigation: "Phones and GPS can fail. Mark two evacuation routes and your meeting places on a paper map, and practice with the compass."
+            case .security: "Test smoke detectors monthly. Keep documents and some small bills in a fireproof, waterproof place, since cards and ATMs may not work in an outage."
+            case .firstAid: "Check kits twice a year and replace anything used or expired. A first aid or Stop the Bleed class makes this gear far more useful."
+            case .shelter: "If the heat goes out, gather everyone in one small room and cover the windows. Never use grills, camp stoves or generators indoors, and run an indoor heater only with a CO detector."
+            case .communication: "GMRS needs an FCC license (no exam) and ham radio needs an amateur license. FRS, CB, Meshtastic and listening need none. Write your family's channels on a printed card."
+            default: "Tools don't change days of food and water. Items at 0 show what's still missing."
+            }
         }
     }
 
@@ -191,11 +204,32 @@ struct SuppliesView: View {
 
 // MARK: - Summary
 
+/// Fuel on hand for the Power and Fuels header, from the catalog's fuel items.
+enum FuelSummary {
+    static let fuels: [(key: String, label: String)] = [
+        ("tool.fuel_gasoline", "gasoline"), ("tool.fuel_diesel", "diesel"),
+        ("tool.fuel_propane_20lb", "propane"), ("tool.fuel_kerosene", "kerosene"),
+    ]
+
+    /// e.g. "Fuel: 10 gal gasoline · 2 tanks propane", or nil when none is stocked.
+    static func line(_ items: [SupplyItem]) -> String? {
+        let parts: [String] = fuels.compactMap { fuel in
+            guard let item = items.first(where: { $0.catalogKey == fuel.key && !$0.isHidden }), item.quantity > 0 else { return nil }
+            let q = item.quantity.formatted(.number.precision(.fractionLength(0...1)))
+            let unit = item.unit == "gallon" ? "gal" : (item.quantity == 1 ? item.unit : item.unit + "s")
+            return "\(q) \(unit) \(fuel.label)"
+        }
+        return parts.isEmpty ? nil : "Fuel: " + parts.joined(separator: " · ")
+    }
+}
+
 private struct ToolsHeader: View {
     let stocked: Int
     let total: Int
     var label = "tools"
     var note = "Tools don't change days of food and water. Items at 0 show what's still missing."
+    /// Optional highlighted line, e.g. fuel on hand.
+    var extra: String? = nil
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -206,6 +240,10 @@ private struct ToolsHeader: View {
             }
             ProgressView(value: Double(stocked), total: Double(max(total, 1)))
                 .tint(stocked == total && total > 0 ? .green : .orange)
+            if let extra {
+                Label(extra, systemImage: "fuelpump.fill")
+                    .font(.subheadline.weight(.semibold))
+            }
             Text(note)
                 .font(.caption).foregroundStyle(.secondary)
         }

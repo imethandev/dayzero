@@ -109,20 +109,44 @@ struct Place: Identifiable, Hashable {
     var coordinate: CLLocationCoordinate2D { .init(latitude: latitude, longitude: longitude) }
 }
 
-/// Read-only access to the bundled places.sqlite (FTS5 search + nearest queries).
+/// Read-only access to places.sqlite (FTS5 search + nearest queries): the downloaded
+/// area's when there is one, otherwise the bundled one.
 final class PlacesDatabase {
-    static let shared = PlacesDatabase()
+    nonisolated(unsafe) private(set) static var shared = PlacesDatabase(path: PlacesDatabase.activePath)
+
+    static var activePath: String? {
+        if MapRegionStore.shared.hasRegion {
+            let path = MapRegionStore.placesURL.path
+            return FileManager.default.fileExists(atPath: path) ? path : nil
+        }
+        return MapBundle.bundledTiles == nil ? nil : MapBundle.url?.appendingPathComponent("places.sqlite").path
+    }
+
+    /// Closes the shared database before its file is replaced or deleted.
+    static func closeShared() { shared.close() }
+
+    /// Reopens the shared database after the map changes.
+    static func reloadShared() {
+        shared.close()
+        shared = PlacesDatabase(path: activePath)
+    }
+
+    func close() {
+        lock.lock(); defer { lock.unlock() }
+        if let db { sqlite3_close(db) }
+        db = nil
+    }
 
     private var db: OpaquePointer?
     private let lock = NSLock()
     private let log = Logger(subsystem: AppInfo.bundleID, category: "places")
 
-    init(path: String? = MapBundle.url?.appendingPathComponent("places.sqlite").path) {
+    init(path: String? = PlacesDatabase.activePath) {
         guard let path, FileManager.default.fileExists(atPath: path) else {
-            log.error("places.sqlite missing from Map.bundle")
+            log.notice("No places.sqlite for the current map")
             return
         }
-        // immutable=1: the file is read-only in the app bundle, so skip locking and journals.
+        // immutable=1: the file is never written after it's created, so skip locking and journals.
         let uri = "file:\(path)?immutable=1"
         if sqlite3_open_v2(uri, &db, SQLITE_OPEN_READONLY | SQLITE_OPEN_URI, nil) != SQLITE_OK {
             log.error("Could not open places.sqlite")

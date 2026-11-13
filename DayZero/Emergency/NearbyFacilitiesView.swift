@@ -33,7 +33,7 @@ struct NearbyFacilitiesView: View {
                     }
                 }
                 Section {} footer: {
-                    Text("From OpenStreetMap data bundled with the app (\(MapBundle.dataDate ?? "unknown date")). Straight-line distances. Facilities change, so confirm before relying on one.")
+                    Text("From the OpenStreetMap data saved on this iPhone (\(MapBundle.dataDate ?? "unknown date")). Straight-line distances. Facilities change, so confirm before relying on one.")
                 }
             } else {
                 ContentUnavailableView {
@@ -45,7 +45,7 @@ struct NearbyFacilitiesView: View {
                 }
             }
         }
-        .navigationTitle("Nearest services")
+        .navigationTitle("Nearest Services")
         .navigationDestination(for: Place.self) { FacilityDetailView(place: $0) }
         .onAppear { location.start(); refresh() }
         .onDisappear { location.stop() }

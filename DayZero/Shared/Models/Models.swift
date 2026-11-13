@@ -15,16 +15,24 @@ enum SupplyKind: String, Codable, CaseIterable, Identifiable {
     }
 }
 
-/// The three tool pages. Stored on tool items; nil (older or custom items) counts as survival.
+/// The tool pages. Stored on tool items; nil (older or custom items) counts as survival.
 enum ToolGroup: String, Codable, CaseIterable, Identifiable {
-    case power, water, sanitation, survival
+    case power, communication, water, food, sanitation, medicine, firstAid, shelter, navigation, security, survival, goBag
     var id: String { rawValue }
     var title: String {
         switch self {
-        case .power: "Power Tools"
-        case .water: "Water Tools"
+        case .power: "Power and Fuels"
+        case .communication: "Communication"
+        case .water: "Water"
+        case .food: "Food"
         case .sanitation: "Sanitation"
+        case .medicine: "Medicine"
+        case .firstAid: "First Aid"
+        case .shelter: "Shelter"
+        case .navigation: "Navigation"
+        case .security: "Security"
         case .survival: "Survival Tools"
+        case .goBag: "Go-Bag"
         }
     }
 }

@@ -1,0 +1,691 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "outages",
+      "title": "Outages",
+      "tint": "yellow",
+      "tips": [
+        {
+          "id": "blackout",
+          "title": "Power outage",
+          "symbol": "bolt.slash.fill",
+          "summary": "Stay safe and keep food cold when the power is out",
+          "overview": "Outages can last a few hours or, after windstorms, snow and earthquakes, several days. The biggest dangers are carbon monoxide from generators and grills, spoiled food, losing heat or cooling, and medical devices that need power.",
+          "safety": [
+            "Run generators, grills and camp stoves outdoors only, at least 20 feet from doors, windows and vents. Carbon monoxide has no smell and can kill in minutes.",
+            "Never plug a generator into a wall outlet. Backfeeding can electrocute utility workers and neighbors. Use extension cords or an electrician-installed transfer switch.",
+            "Treat every downed line as live. Stay at least 35 feet away and call emergency services.",
+            "Use flashlights instead of candles. If you must use candles, never leave them burning unattended."
+          ],
+          "steps": [
+            {
+              "title": "Keep the fridge and freezer closed",
+              "detail": "A closed fridge keeps food cold for about 4 hours. A full freezer lasts about 48 hours, a half-full one about 24. Throw out perishable food that sat above 40°F for more than 2 hours."
+            },
+            {
+              "title": "Unplug electronics",
+              "detail": "Unplug computers, TVs and appliances so a surge can't damage them when power returns. Leave one lamp switched on so you know when it's back."
+            },
+            {
+              "title": "Put light where you need it",
+              "detail": "Give everyone a headlamp or flashlight and keep spares in the kitchen, bathroom and by each bed, in the same spot every time."
+            },
+            {
+              "title": "Save your phone battery",
+              "detail": "Turn on Low Power Mode, lower the brightness and send texts instead of calling. Charge from a power bank or in a running car outdoors."
+            },
+            {
+              "title": "Plan for medical needs and temperature",
+              "detail": "Keep backup batteries for CPAP, oxygen and other devices, and ask your utility about its medical-needs list. In extreme heat or cold, go to a cooling or warming center."
+            }
+          ]
+        },
+        {
+          "id": "water_outage",
+          "title": "Water outage or boil-water notice",
+          "symbol": "drop.triangle.fill",
+          "summary": "Make water safe and stretch what you have",
+          "overview": "Water mains break in earthquakes, freezes and floods, and a drop in pressure can let germs into the pipes. A boil-water notice means tap water isn't safe to drink, cook with or brush your teeth with until officials say it is.",
+          "safety": [
+            "During a notice, don't drink tap water or use it for ice, baby formula or brushing teeth unless you boil or disinfect it first.",
+            "Boiling kills germs but doesn't remove chemicals or fuel. Never drink floodwater.",
+            "Use only plain, unscented household bleach to disinfect water, and never mix bleach with ammonia or other cleaners."
+          ],
+          "steps": [
+            {
+              "title": "Boil it the right way",
+              "detail": "Bring clear water to a rolling boil for 1 minute (3 minutes above 6,500 feet). Let it cool, then store it in clean, covered containers."
+            },
+            {
+              "title": "Disinfect with bleach if you can't boil",
+              "detail": "Add 8 drops (about 1/8 teaspoon) of regular 6% unscented bleach per gallon of clear water. Stir and wait 30 minutes. Double it if the water is cloudy, or filter it first."
+            },
+            {
+              "title": "Find the water already in your home",
+              "detail": "Your water heater holds 30 to 80 gallons: turn off its power or gas, then drain it from the valve at the bottom. Toilet tank water (not the bowl, and only without cleaning tablets) and melted ice also work."
+            },
+            {
+              "title": "Close the main valve if pipes break",
+              "detail": "Shutting the main water valve keeps dirty water from entering your pipes and stops leaks from flooding the house."
+            },
+            {
+              "title": "Save clean water for drinking",
+              "detail": "Use a bucket toilet or flush with used water, eat off paper plates and clean hands with sanitizer. Plan on 1 gallon per person per day for drinking and cooking."
+            }
+          ]
+        },
+        {
+          "id": "phones_down",
+          "title": "Phones and internet down",
+          "symbol": "antenna.radiowaves.left.and.right.slash",
+          "summary": "Stay in touch when calls and data don't work",
+          "overview": "After big disasters, cell towers lose power or get overloaded, and internet can be out for days. Text messages, radios and a plan made in advance are what keep families connected.",
+          "safety": [
+            "Call emergency services only for life-threatening emergencies so lines stay open for people who need them.",
+            "Text instead of calling. Texts use less network capacity and often get through when calls fail.",
+            "Don't drive around looking for family. Roads may be blocked, and you'll use fuel you may need."
+          ],
+          "steps": [
+            {
+              "title": "Pick an out-of-area contact",
+              "detail": "Choose a relative or friend in another state. Everyone texts that person to check in, since long-distance messages often work when local ones don't."
+            },
+            {
+              "title": "Write numbers on paper",
+              "detail": "Keep a printed contact list in your wallet, go-bag and car. Most people don't know important numbers by heart."
+            },
+            {
+              "title": "Set meeting places",
+              "detail": "Agree on one spot near home and one outside the neighborhood, like a library or school, in case you can't get home or reach each other."
+            },
+            {
+              "title": "Have a radio for news",
+              "detail": "A battery or hand-crank AM/FM or NOAA weather radio gets emergency broadcasts with no cell service at all."
+            },
+            {
+              "title": "Make phones last",
+              "detail": "Turn on Low Power Mode, close apps and lower brightness. Keep a charged power bank and a car charger."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "disasters",
+      "title": "Disasters",
+      "tint": "red",
+      "tips": [
+        {
+          "id": "earthquake",
+          "title": "Earthquake",
+          "symbol": "waveform.path",
+          "summary": "Drop, cover and hold on, then get ready for aftershocks",
+          "overview": "Washington has shallow quakes, deep quakes like Nisqually in 2001, and a future Cascadia megaquake that could shake for several minutes and cut roads, power and water for weeks. Most injuries come from falling objects and broken glass, not collapsing buildings.",
+          "safety": [
+            "When shaking starts, drop, cover and hold on. Don't run outside or stand in a doorway.",
+            "On the coast, long or strong shaking is your tsunami warning. Walk to high ground right away without waiting for an official alert.",
+            "Expect aftershocks. If you smell gas or hear hissing, leave the building and shut off the gas from outside if you can.",
+            "Wear sturdy shoes before you walk around. Broken glass is everywhere after a big quake."
+          ],
+          "steps": [
+            {
+              "title": "Secure heavy things",
+              "detail": "Strap bookcases, dressers, TVs and the water heater to wall studs. Move heavy objects off high shelves and away from beds."
+            },
+            {
+              "title": "Keep shoes and a light by the bed",
+              "detail": "Put sturdy shoes and a flashlight or headlamp in a bag tied to the bed frame so they don't get thrown across the room."
+            },
+            {
+              "title": "Practice drop, cover and hold on",
+              "detail": "Get under a sturdy table and hold a leg. If you're in bed, stay there and cover your head with a pillow. Practice with your family once a year."
+            },
+            {
+              "title": "Be ready for two weeks",
+              "detail": "Washington emergency managers recommend two weeks of water, food and medicine, because help may take that long to reach some areas."
+            },
+            {
+              "title": "Pick an out-of-area contact",
+              "detail": "Local phone lines jam after a quake. Choose a relative out of state for everyone to text, and write the number on paper."
+            }
+          ]
+        },
+        {
+          "id": "wildfire_smoke",
+          "title": "Wildfire smoke",
+          "symbol": "smoke.fill",
+          "summary": "Keep smoke out and know when to evacuate",
+          "overview": "Smoke from fires hundreds of miles away can make the air unhealthy for days. Fine particles irritate the eyes and lungs and are hardest on children, older adults, pregnant people and anyone with heart or lung disease.",
+          "safety": [
+            "Cloth and surgical masks don't filter smoke. Use a well-fitted N95 or better.",
+            "Don't use air cleaners that make ozone, sometimes sold as ionizers or ozone generators.",
+            "Get medical help for chest pain, a racing heart or trouble breathing.",
+            "If a fire is close, follow evacuation levels: Level 1 means be ready, Level 2 means be set to leave, Level 3 means go now."
+          ],
+          "steps": [
+            {
+              "title": "Make a clean-air room",
+              "detail": "Pick a room with few windows, close it off and run a HEPA air cleaner sized for the room. Sleep there on smoky nights."
+            },
+            {
+              "title": "Build a box-fan filter",
+              "detail": "Tape a MERV 13 furnace filter to the back of a box fan for a low-cost air cleaner. Don't leave it running unattended."
+            },
+            {
+              "title": "Keep the smoke out",
+              "detail": "Close windows and doors, and set the air conditioner or car vents to recirculate. Replace dirty furnace filters."
+            },
+            {
+              "title": "Don't add indoor smoke",
+              "detail": "Skip candles, frying, broiling, vacuuming and smoking indoors while the air outside is bad."
+            },
+            {
+              "title": "Pack before you need to leave",
+              "detail": "Keep your go-bag, medicines, documents and phone chargers by the door, and park the car facing out with at least half a tank."
+            }
+          ]
+        },
+        {
+          "id": "winter_storm",
+          "title": "Winter storm",
+          "symbol": "snowflake",
+          "summary": "Stay warm, keep pipes from freezing, avoid icy roads",
+          "overview": "Snow and ice storms bring down trees and power lines, cause long outages and leave roads unsafe for days. The main dangers are a cold house, carbon monoxide from unsafe heating and driving on ice.",
+          "safety": [
+            "Never heat your home with a gas oven, grill, camp stove or generator indoors.",
+            "Watch for hypothermia: shivering, confusion, slurred speech and drowsiness. Warm the person slowly and get help.",
+            "Frostbite shows as numb, white or grayish skin. Warm it with body heat, not by rubbing it.",
+            "If you're stranded in a car, stay with it. Run the engine about 10 minutes an hour and keep the tailpipe clear of snow."
+          ],
+          "steps": [
+            {
+              "title": "Heat one room",
+              "detail": "Choose an inside room, hang blankets over windows and doorways and keep everyone together. Close off the rest of the house."
+            },
+            {
+              "title": "Dress in layers",
+              "detail": "Wear hats, wool socks and layers indoors, and sleep in sleeping bags or under extra blankets."
+            },
+            {
+              "title": "Keep pipes from freezing",
+              "detail": "Let faucets drip, open the cabinets under sinks and insulate exposed pipes. Know where the main water valve is in case a pipe bursts."
+            },
+            {
+              "title": "Pack a winter car kit",
+              "detail": "Keep a blanket, ice scraper, small shovel, sand or cat litter for traction, snacks, water and a phone charger in the car. Keep the tank at least half full."
+            },
+            {
+              "title": "Stock up before it hits",
+              "detail": "Get food that needs no cooking, water, medicine and batteries, and charge phones and power banks while you still have power."
+            }
+          ]
+        },
+        {
+          "id": "nuclear_fallout",
+          "title": "Nuclear fallout",
+          "symbol": "atom",
+          "summary": "Get inside, stay inside, stay tuned",
+          "overview": "A nuclear explosion or serious reactor accident can spread fallout, radioactive dust that settles over minutes to hours. It's most dangerous in the first day and fades quickly after that. Getting deep inside a solid building cuts your exposure dramatically.",
+          "safety": [
+            "Don't look at a flash or fireball. It can blind you.",
+            "Get inside the nearest solid building within minutes, even if your family is somewhere else. Don't go out to pick up children; schools shelter students.",
+            "Take potassium iodide only if public health officials tell you to. It protects only the thyroid and isn't safe for everyone.",
+            "Radiation from fallout drops sharply within the first 24 hours, so sheltering longer is far safer than leaving early."
+          ],
+          "steps": [
+            {
+              "title": "Go deep inside",
+              "detail": "Shelter in a basement or the center of a brick or concrete building, away from windows and outside walls. In a tall building, go to the middle floors. Cars give almost no protection."
+            },
+            {
+              "title": "Stay at least 24 hours",
+              "detail": "Stay inside unless officials tell you otherwise or your shelter becomes unsafe. Listen for instructions on a battery or hand-crank radio."
+            },
+            {
+              "title": "Remove fallout from your body",
+              "detail": "If you were outside, take off your outer clothing, bag it and set it away from people. Shower with soap and shampoo but no conditioner, or wipe exposed skin with a damp cloth."
+            },
+            {
+              "title": "Keep food and water covered",
+              "detail": "Sealed packaged food and bottled water are safe. Wipe the outside of containers before opening them."
+            },
+            {
+              "title": "Shut off outside air",
+              "detail": "Close windows and doors, turn off fans and heating or cooling that pulls in outside air, and bring pets inside."
+            }
+          ]
+        },
+        {
+          "id": "flood",
+          "title": "Flood",
+          "symbol": "water.waves",
+          "summary": "Get to higher ground and stay out of floodwater",
+          "overview": "Floods are the most common disaster in Washington, from river flooding in winter to flash floods after heavy rain or below wildfire burn scars. Most flood deaths happen in vehicles driving into water.",
+          "safety": [
+            "Turn around, don't drown. Just 6 inches of moving water can knock you down, and 12 inches can carry away a car.",
+            "Stay out of floodwater. It can hide debris, open manholes and live electrical wires, and is often contaminated with sewage.",
+            "If water is rising inside, go to the highest floor, but not a closed attic where you could be trapped. Signal for help from the roof if needed.",
+            "Don't touch electrical equipment if you are wet or standing in water."
+          ],
+          "steps": [
+            {
+              "title": "Know your flood risk",
+              "detail": "Check whether you live in a flood zone or below a river levee, and learn your local evacuation routes to higher ground."
+            },
+            {
+              "title": "Move valuables up",
+              "detail": "Keep important documents in a waterproof container and store valuables and electronics on upper floors or high shelves."
+            },
+            {
+              "title": "Leave early when told",
+              "detail": "If officials call for evacuation, go right away. Roads to higher ground can flood quickly."
+            },
+            {
+              "title": "Protect your home",
+              "detail": "Clear gutters and drains, keep sandbags ready and consider a sump pump with battery backup and a sewer backwater valve."
+            },
+            {
+              "title": "Clean up safely",
+              "detail": "Wear boots and gloves, photograph damage for insurance, and throw out food, medicine and soft items that touched floodwater."
+            }
+          ]
+        },
+        {
+          "id": "tsunami",
+          "title": "Tsunami",
+          "symbol": "water.waves.and.arrow.up",
+          "summary": "Feel shaking at the coast? Walk to high ground now",
+          "overview": "A Cascadia earthquake could send tsunami waves to the Washington coast in as little as 15 to 20 minutes, with more waves for hours afterward. Distant earthquakes can also cause tsunamis that arrive hours later with an official warning.",
+          "safety": [
+            "On the coast, strong or long shaking is the warning. Don't wait for a siren or alert.",
+            "Go on foot if you can. Roads and bridges may be damaged or jammed with traffic.",
+            "If the ocean suddenly pulls back or you hear a loud roar, move inland or uphill immediately.",
+            "Stay on high ground until officials say it's safe. The first wave is often not the largest."
+          ],
+          "steps": [
+            {
+              "title": "Learn your zone",
+              "detail": "Find out whether your home, work, school or vacation spot is in a tsunami hazard zone, and where the nearest high ground is."
+            },
+            {
+              "title": "Walk your route",
+              "detail": "Practice walking to high ground or a vertical evacuation structure. Aim to get there in 15 minutes."
+            },
+            {
+              "title": "Keep a go-bag by the door",
+              "detail": "When you need to leave fast, grab it and go. Don't stop to pack."
+            },
+            {
+              "title": "Get 50 feet up or 1 mile inland",
+              "detail": "If you can't reach a mapped safe area, go as high or as far inland as you can."
+            },
+            {
+              "title": "Know the official signs",
+              "detail": "Watch for blue tsunami evacuation route signs on the coast and follow them."
+            }
+          ]
+        },
+        {
+          "id": "volcano_lahar",
+          "title": "Volcano and lahar",
+          "symbol": "mountain.2.fill",
+          "summary": "Know your lahar zone and how to leave it",
+          "overview": "Mount Rainier, Mount St. Helens, Mount Baker, Glacier Peak and Mount Adams are active volcanoes. The biggest threat to most people is a lahar: a fast-moving flow of mud and debris that follows river valleys and can travel dozens of miles from the volcano. Ash can also fall over a wide area.",
+          "safety": [
+            "If you're in a lahar zone and hear a warning siren or a roaring sound, go to high ground immediately on foot or by car. Don't wait to see it.",
+            "Never go into a river valley near a volcano to look at a lahar.",
+            "Volcanic ash is sharp, like tiny glass. Stay indoors and wear an N95 mask and goggles if you must go out.",
+            "Don't drive in heavy ashfall. Ash cuts visibility, makes roads slick and clogs engines."
+          ],
+          "steps": [
+            {
+              "title": "Find out if you live in a lahar zone",
+              "detail": "Lahar hazard maps cover valleys below Rainier and other volcanoes, including towns like Orting, Puyallup and Sumner. Know where your nearest high ground is."
+            },
+            {
+              "title": "Practice the evacuation route",
+              "detail": "Walk or drive your route to high ground. Some schools practice lahar drills; ask about yours."
+            },
+            {
+              "title": "Prepare for ash",
+              "detail": "Keep N95 masks, goggles and plastic sheeting to cover electronics and vents."
+            },
+            {
+              "title": "Protect your car and home",
+              "detail": "Close windows and doors, turn off fans and HVAC, and cover car air intakes during ashfall."
+            },
+            {
+              "title": "Clean ash gently",
+              "detail": "Dampen ash before sweeping, and clear roofs carefully. Wet ash is heavy and can collapse a roof."
+            }
+          ]
+        },
+        {
+          "id": "extreme_heat",
+          "title": "Extreme heat",
+          "symbol": "thermometer.sun.fill",
+          "summary": "Stay cool and watch for heat illness",
+          "overview": "The 2021 Pacific Northwest heat dome killed hundreds of people, many alone in homes without air conditioning. Heat is especially dangerous for older adults, babies, people with health conditions and anyone working outside.",
+          "safety": [
+            "Heat stroke is an emergency: hot skin, confusion, fainting or a body temperature above 103°F. Call emergency services and cool the person right away with water and ice.",
+            "Never leave children or pets in a parked car, even for a few minutes.",
+            "Fans alone don't prevent heat illness once it's above the mid-90s°F. Get somewhere cooler.",
+            "Check on neighbors and relatives who live alone, at least twice a day."
+          ],
+          "steps": [
+            {
+              "title": "Find a cool place",
+              "detail": "Know where cooling centers, libraries and air-conditioned stores are. Spend the hottest hours there if your home gets hot."
+            },
+            {
+              "title": "Keep the heat out",
+              "detail": "Close blinds and curtains during the day and open windows at night when it's cooler outside."
+            },
+            {
+              "title": "Drink before you're thirsty",
+              "detail": "Drink water regularly, and avoid alcohol and lots of caffeine. Take oral rehydration salts if sweating heavily."
+            },
+            {
+              "title": "Cool your body",
+              "detail": "Take cool showers, use wet towels on your neck and wrists, and sleep in the coolest room."
+            },
+            {
+              "title": "Change your schedule",
+              "detail": "Do outdoor work early in the morning, take breaks in the shade and wear light, loose clothing."
+            }
+          ]
+        },
+        {
+          "id": "landslide",
+          "title": "Landslide",
+          "symbol": "mountain.2.circle.fill",
+          "summary": "Watch slopes during heavy rain and after fires",
+          "overview": "Landslides are common in Washington during long, heavy rains and after wildfires burn away vegetation. The 2014 Oso landslide showed how fast and far they can travel.",
+          "safety": [
+            "If you hear rumbling, cracking trees or rushing water upslope, leave immediately. Move away from the path, not downhill.",
+            "Watch for sudden changes in creek water: rising, falling or muddy water can mean a slide upstream.",
+            "Stay away from a slide area after it stops. More slides and flooding can follow."
+          ],
+          "steps": [
+            {
+              "title": "Know the warning signs",
+              "detail": "New cracks in the ground, walls or driveway; tilting trees, fences or poles; and doors or windows that suddenly stick."
+            },
+            {
+              "title": "Check your slope",
+              "detail": "If you live on or below a steep slope, ask your county about landslide hazard maps."
+            },
+            {
+              "title": "Manage water",
+              "detail": "Direct gutters and drains away from slopes, and don't let water pool above your house."
+            },
+            {
+              "title": "Stay alert in storms",
+              "detail": "During heavy rain, keep a radio on and sleep away from the side of the house facing the slope."
+            },
+            {
+              "title": "Have a way out",
+              "detail": "Know two routes away from your home in case one is blocked by a slide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "title": "Home",
+      "tint": "blue",
+      "tips": [
+        {
+          "id": "sewage_backflow",
+          "title": "Stop sewage backflow",
+          "symbol": "toilet.fill",
+          "summary": "Keep sewage from backing up into your home",
+          "overview": "When heavy rain, floods or an earthquake overload or break the sewer system, sewage can push back up through floor drains, basement toilets and showers. It carries bacteria and viruses and can ruin a basement in minutes. The lowest drains in the house are most at risk.",
+          "safety": [
+            "Treat backed-up sewage as hazardous. Wear gloves, rubber boots and eye protection, and keep children and pets away.",
+            "If water reaches outlets or appliances, shut off power at the main breaker only if you can reach it from a dry spot. Otherwise call the utility.",
+            "Throw out food, medicine and soft items that touched sewage, and wash your hands often.",
+            "Never mix bleach with ammonia or other cleaners while cleaning up."
+          ],
+          "steps": [
+            {
+              "title": "Install a backwater valve",
+              "detail": "A plumber can add a backwater valve to your main sewer line. It closes automatically when sewage flows the wrong way. Ask about permits first."
+            },
+            {
+              "title": "Plug the lowest drains",
+              "detail": "Keep rubber test plugs or standpipe plugs for floor drains and basement showers. In a flood, set a sandbag or a heavy bag filled with water in the toilet bowl and over drains."
+            },
+            {
+              "title": "Stop using water when sewers are down",
+              "detail": "After an earthquake or sewer break, don't flush or run water until officials say the sewers work. Use a bucket toilet lined with two bags."
+            },
+            {
+              "title": "Keep rainwater out of the sewer",
+              "detail": "Disconnect downspouts from the sewer line and point them away from the house. Don't pour grease down drains, where it builds clogs."
+            },
+            {
+              "title": "Know your sewer cleanout",
+              "detail": "Find the cleanout cap where the sewer line leaves your house, keep it closed and undamaged, and save a plumber's number on paper."
+            }
+          ]
+        },
+        {
+          "id": "utility_shutoff",
+          "title": "Shut off gas, water and power",
+          "symbol": "wrench.adjustable.fill",
+          "summary": "Find every shutoff before you need it",
+          "overview": "Knowing how to shut off gas, water and electricity can prevent fires, floods and explosions after an earthquake or storm. Find each shutoff now and show everyone old enough how to use it.",
+          "safety": [
+            "Shut off gas only if you smell gas, hear hissing or see damage. Once it's off, only the gas company should turn it back on.",
+            "If you smell gas, leave right away. Don't use light switches, phones or flames inside, and call from outside.",
+            "Never touch the electrical panel while standing in water.",
+            "Switch off individual breakers first, then the main breaker, to reduce sparking."
+          ],
+          "steps": [
+            {
+              "title": "Find the gas valve",
+              "detail": "It's on the pipe next to the gas meter. A quarter turn so the tab sits crosswise to the pipe shuts it off. Keep a shutoff wrench tied near the meter."
+            },
+            {
+              "title": "Find the main water valve",
+              "detail": "It's usually where the water line enters the house, or in a box near the street. Turn it clockwise to close, and tag it so anyone can find it."
+            },
+            {
+              "title": "Label your electrical panel",
+              "detail": "Mark what each breaker controls and keep a flashlight next to the panel."
+            },
+            {
+              "title": "Take photos",
+              "detail": "Photograph each shutoff and save the pictures in a DayZero note so they're on your phone even without internet."
+            },
+            {
+              "title": "Practice once a year",
+              "detail": "Turn the water valve and breakers off and on so they don't seize up. Don't practice on the gas valve."
+            }
+          ]
+        },
+        {
+          "id": "carbon_monoxide",
+          "title": "Carbon monoxide",
+          "symbol": "carbon.monoxide.cloud.fill",
+          "summary": "The invisible danger in outages and storms",
+          "overview": "Carbon monoxide (CO) is a gas you can't see or smell. It's the leading cause of death after winter storms and power outages, almost always from generators, grills or heaters used indoors or in garages.",
+          "safety": [
+            "Never run a generator, grill, camp stove or charcoal indoors, in a garage or near windows, even with the door open.",
+            "Symptoms feel like the flu: headache, dizziness, nausea and confusion. If several people or pets feel sick at once, suspect CO.",
+            "If a CO alarm sounds or you suspect CO, get everyone outside to fresh air right away and call emergency services.",
+            "Don't warm up a car in a closed garage."
+          ],
+          "steps": [
+            {
+              "title": "Install CO alarms",
+              "detail": "Put battery or battery-backup CO alarms on every level and outside sleeping areas."
+            },
+            {
+              "title": "Test them monthly",
+              "detail": "Press the test button each month, and replace batteries once a year and alarms every 5 to 7 years."
+            },
+            {
+              "title": "Keep the generator far away",
+              "detail": "Run it at least 20 feet from the house, with the exhaust pointed away from doors and windows."
+            },
+            {
+              "title": "Service heating equipment",
+              "detail": "Have furnaces, water heaters and wood stoves checked yearly, and keep vents clear of snow."
+            },
+            {
+              "title": "Use indoor-rated heaters only",
+              "detail": "If you use a portable heater indoors, make sure it's labeled for indoor use and keep a CO alarm in the room."
+            }
+          ]
+        },
+        {
+          "id": "water_storage",
+          "title": "Store water at home",
+          "symbol": "drop.fill",
+          "summary": "How much to keep and how to keep it safe",
+          "overview": "Water is the most important supply. Washington recommends being two weeks ready, which means at least 14 gallons per person, plus more for pets, hot weather, babies and people who are sick.",
+          "safety": [
+            "Don't store water in containers that held milk, juice or chemicals. Milk jugs break down and are hard to clean.",
+            "Keep stored water away from gasoline, pesticides and other chemicals; fumes can pass through plastic.",
+            "If stored water looks cloudy or smells bad, treat or replace it before drinking."
+          ],
+          "steps": [
+            {
+              "title": "Plan 1 gallon per person per day",
+              "detail": "That covers drinking and simple cooking. Store at least 2 weeks' worth if you can."
+            },
+            {
+              "title": "Use food-grade containers",
+              "detail": "Buy sealed bottled water or food-grade water containers, and keep them in a cool, dark place."
+            },
+            {
+              "title": "Rotate it",
+              "detail": "Replace water you filled yourself every 6 months. Store-bought bottles last until their date."
+            },
+            {
+              "title": "Disinfect what you fill yourself",
+              "detail": "Clean containers with soap, rinse, sanitize with a bleach solution and fill with tap water."
+            },
+            {
+              "title": "Have a way to treat more",
+              "detail": "Keep a water filter and unscented bleach so you can treat water from other sources if storage runs out."
+            }
+          ]
+        },
+        {
+          "id": "food_after_outage",
+          "title": "Food safety after an outage",
+          "symbol": "refrigerator.fill",
+          "summary": "What to keep and what to throw out",
+          "overview": "Food that warms up can grow bacteria that make you sick without changing how it looks or smells. Knowing how long food stays safe helps you avoid both illness and waste.",
+          "safety": [
+            "When in doubt, throw it out. Never taste food to check whether it's safe.",
+            "Throw out perishable food like meat, dairy, eggs and leftovers that sat above 40°F for more than 2 hours.",
+            "Discard any food that touched floodwater, including canned food with damaged or bulging cans."
+          ],
+          "steps": [
+            {
+              "title": "Keep doors closed",
+              "detail": "A closed fridge stays cold about 4 hours. A full freezer stays frozen about 48 hours, a half-full one about 24."
+            },
+            {
+              "title": "Use a thermometer",
+              "detail": "Keep an appliance thermometer in the fridge and freezer so you know the actual temperature when the power comes back."
+            },
+            {
+              "title": "Refreeze what's still icy",
+              "detail": "Food that still has ice crystals or is at 40°F or below can be refrozen safely."
+            },
+            {
+              "title": "Eat in the right order",
+              "detail": "Eat perishable food from the fridge first, then the freezer, then pantry food that doesn't need cooling."
+            },
+            {
+              "title": "Use a cooler",
+              "detail": "If the outage will be long, move food into a cooler with ice or frozen water bottles."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "Skills",
+      "tint": "green",
+      "tips": [
+        {
+          "id": "evacuate_fast",
+          "title": "Evacuate fast",
+          "symbol": "car.fill",
+          "summary": "Get out quickly with what matters",
+          "overview": "Wildfires, floods, chemical spills and tsunamis can give you very little time to leave. Families who practice leaving in 10 minutes get out faster and forget less.",
+          "safety": [
+            "Leave when officials tell you to. Waiting can trap you on blocked or smoky roads.",
+            "Follow the evacuation routes officials give; shortcuts may lead into danger.",
+            "Never go back into an evacuation zone until officials say it's safe."
+          ],
+          "steps": [
+            {
+              "title": "Keep go-bags ready",
+              "detail": "Have a go-bag for each person and pet, packed and near the door or in the car."
+            },
+            {
+              "title": "Use a 10-minute list",
+              "detail": "Write a list of what to grab: medicines, documents, phone chargers, glasses, cash and pets. Tape it inside a closet door."
+            },
+            {
+              "title": "Keep fuel in the car",
+              "detail": "Keep the tank at least half full. Gas stations may be closed or have long lines."
+            },
+            {
+              "title": "Know two ways out",
+              "detail": "Plan two routes out of your neighborhood and a place to go, like a friend's home out of the area."
+            },
+            {
+              "title": "Tell someone",
+              "detail": "Text your out-of-area contact where you're going, and leave a note at home if officials suggest it."
+            }
+          ]
+        },
+        {
+          "id": "pets",
+          "title": "Pets in emergencies",
+          "symbol": "pawprint.fill",
+          "summary": "Plan for pets so you never have to leave them",
+          "overview": "If it isn't safe for you, it isn't safe for your pets. Many people delay evacuating because of pets, so a plan for them keeps the whole family safer.",
+          "safety": [
+            "Never leave pets tied up or locked in during a disaster; they can't escape rising water or fire.",
+            "Stressed animals may bite or run. Keep pets leashed or in carriers.",
+            "Not every shelter takes pets; find pet-friendly options before you need them."
+          ],
+          "steps": [
+            {
+              "title": "Make a pet go-bag",
+              "detail": "Pack food, water, bowls, medications, a leash, waste bags and a copy of vaccination records for each pet."
+            },
+            {
+              "title": "Microchip and tag",
+              "detail": "Make sure pets wear ID tags and are microchipped with your current phone number."
+            },
+            {
+              "title": "Take a current photo",
+              "detail": "Keep a photo of you with your pet to prove ownership and help find them if lost."
+            },
+            {
+              "title": "Find pet-friendly places",
+              "detail": "List pet-friendly hotels, friends outside your area and boarding options along your evacuation route."
+            },
+            {
+              "title": "Practice with the carrier",
+              "detail": "Get pets used to their carrier so loading them is quick when you have to leave."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

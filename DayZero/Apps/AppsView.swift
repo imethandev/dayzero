@@ -190,10 +190,17 @@ struct DiagnosticsView: View {
                 LabeledContent("App", value: "DayZero")
                 LabeledContent("Version", value: version)
                 LabeledContent("Build phase", value: "6 — Apps tab (all phases done)")
-                LabeledContent("Map data date", value: MapBundle.dataDate ?? "Not bundled")
-                LabeledContent("Map coverage", value: "Washington, zoom 0–14")
-                if let places = MapBundle.manifest?.places {
-                    LabeledContent("Places & facilities", value: places.values.reduce(0, +).formatted())
+                LabeledContent("Map data date", value: MapBundle.dataDate ?? "No map yet")
+                if let region = MapRegionStore.shared.manifest {
+                    LabeledContent("Map coverage", value: "\(region.radiusKm.formatted(.number.precision(.fractionLength(0...1)))) km around you, zoom 0–14")
+                    LabeledContent("Places & facilities", value: region.placeCount.formatted())
+                } else if MapBundle.bundledTiles != nil {
+                    LabeledContent("Map coverage", value: "Built-in map, zoom 0–14")
+                    if let places = MapBundle.manifest?.places {
+                        LabeledContent("Places & facilities", value: places.values.reduce(0, +).formatted())
+                    }
+                } else {
+                    LabeledContent("Map coverage", value: "Download from the Map tab")
                 }
                 Text("Map data © OpenStreetMap contributors. Available under the Open Database License.")
                     .font(.footnote)
