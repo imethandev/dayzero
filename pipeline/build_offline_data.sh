@@ -45,7 +45,9 @@ python3 -I "$ROOT/pipeline/prepare_style_assets.py" "$WORK" "$OUT"
 step "7-8. Places database"
 osmium tags-filter "$PBF" \
   n/place=city,town,village,hamlet \
-  nwr/amenity=hospital,clinic,doctors,pharmacy,fire_station,police,fuel,drinking_water,shelter \
+  nwr/amenity=hospital,clinic,doctors,pharmacy,fire_station,police,fuel,drinking_water,water_point,shelter \
+  nwr/man_made=water_tap,water_well \
+  nwr/natural=spring \
   nwr/healthcare=hospital,clinic \
   nwr/social_facility=shelter \
   nwr/emergency=assembly_point,drinking_water \

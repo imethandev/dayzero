@@ -5,7 +5,16 @@ enum MapIcons {
     static func name(for layer: FacilityLayer) -> String { "dz-\(layer.rawValue)" }
     /// Clinics get their own lighter icon so hospitals stand out.
     static func name(for kind: PlaceKind) -> String {
-        kind == .clinic ? "dz-clinic" : kind.layer.map { name(for: $0) } ?? "dz-medical"
+        switch kind {
+        case .clinic: "dz-clinic"
+        case .water_point: "dz-water-point"
+        case .spring: "dz-spring"
+        case .well: "dz-well"
+        default: kind.layer.map { name(for: $0) } ?? "dz-medical"
+        }
+    }
+    static func name(for place: Place) -> String {
+        place.isNotDrinkable ? "dz-water-untreated" : name(for: place.kind)
     }
     static func name(for pin: MapPinKind) -> String { "dz-pin-\(pin.rawValue)" }
     static let contact = "dz-contact"
@@ -19,6 +28,10 @@ enum MapIcons {
             out[name(for: kind)] = marker(symbol: pinSymbol(kind), color: .systemIndigo, size: 32, ring: .systemYellow)
         }
         out["dz-clinic"] = marker(symbol: "stethoscope", color: UIColor.systemRed.withAlphaComponent(0.75), size: 22)
+        out["dz-water-point"] = marker(symbol: "waterbottle.fill", color: .systemCyan, size: 26)
+        out["dz-spring"] = marker(symbol: "leaf.fill", color: .systemTeal, size: 26)
+        out["dz-well"] = marker(symbol: "spigot.fill", color: .systemTeal, size: 26)
+        out["dz-water-untreated"] = marker(symbol: "drop.triangle.fill", color: .systemGray, size: 22)
         out[contact] = marker(symbol: "star.fill", color: .systemTeal, size: 30)
         return out
     }

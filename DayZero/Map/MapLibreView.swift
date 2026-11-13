@@ -30,6 +30,8 @@ struct MapLibreView: UIViewRepresentable {
     var recenterToken: Int
     var focus: MapFocus?
     var enabledLayers: Set<FacilityLayer>
+    /// Which water sources to show when Water is selected.
+    var waterFilter: WaterFilter = .all
     var contacts: [MapMarker]
     var pins: [MapMarker]
     var onRecenterFailed: () -> Void = {}
@@ -103,6 +105,7 @@ struct MapLibreView: UIViewRepresentable {
         private var hasCenteredOnUser = false
         private var focusAnnotation: MLNPointAnnotation?
         private var appliedLayers: Set<FacilityLayer>?
+        private var appliedWater: WaterFilter?
         private var appliedContacts: [MapMarker]?
         private var appliedPins: [MapMarker]?
         private lazy var facilities: [Place] = PlacesDatabase.shared.allFacilities()
@@ -165,19 +168,24 @@ struct MapLibreView: UIViewRepresentable {
                 let f = MLNPointFeature()
                 f.coordinate = place.coordinate
                 f.attributes = ["source": "facility", "id": String(place.id), "name": place.name,
-                                "icon": MapIcons.name(for: place.kind), "layer": layer.rawValue,
-                                "major": Self.majorKinds.contains(place.kind)]
+                                "icon": MapIcons.name(for: place), "layer": layer.rawValue,
+                                "major": Self.majorKinds.contains(place.kind),
+                                "kind": place.kind.rawValue,
+                                // Lower draws first and wins collisions: springs and hand pumps over taps.
+                                "rank": (place.kind == .spring || place.kind == .well) && !place.isNotDrinkable ? 0 : 1]
                 return f
             }
             let facilitySource = MLNShapeSource(identifier: "dz-facilities", features: facilityFeatures, options: nil)
             style.addSource(facilitySource)
             let minorLayer = symbolLayer(Self.minorFacilityLayerID, source: facilitySource, overlap: false)
             minorLayer.minimumZoomLevel = 13
+            minorLayer.symbolSortKey = NSExpression(forKeyPath: "rank")
             minorLayer.text = NSExpression(format: "mgl_step:from:stops:($zoomLevel, '', %@)",
                                            [15: NSExpression(forKeyPath: "name")])
             style.addLayer(minorLayer)
             let facilityLayer = symbolLayer(Self.facilityLayerID, source: facilitySource, overlap: false)
             facilityLayer.minimumZoomLevel = 9
+            facilityLayer.symbolSortKey = NSExpression(forKeyPath: "rank")
             facilityLayer.text = NSExpression(format: "mgl_step:from:stops:($zoomLevel, '', %@)",
                                               [13: NSExpression(forKeyPath: "name")])
             style.addLayer(facilityLayer)
@@ -191,6 +199,7 @@ struct MapLibreView: UIViewRepresentable {
             style.addLayer(symbolLayer(Self.pinLayerID, source: pinSource, overlap: true, labelAlways: true))
 
             appliedLayers = nil
+            appliedWater = nil
             appliedContacts = nil
             appliedPins = nil
             applyLayerFilter()
@@ -219,8 +228,9 @@ struct MapLibreView: UIViewRepresentable {
             guard let style = map?.style,
                   let major = style.layer(withIdentifier: Self.facilityLayerID) as? MLNSymbolStyleLayer,
                   let minor = style.layer(withIdentifier: Self.minorFacilityLayerID) as? MLNSymbolStyleLayer,
-                  appliedLayers != parent.enabledLayers else { return }
+                  appliedLayers != parent.enabledLayers || appliedWater != parent.waterFilter else { return }
             appliedLayers = parent.enabledLayers
+            appliedWater = parent.waterFilter
             let layers = parent.enabledLayers.map(\.rawValue)
             if parent.enabledLayers.count == FacilityLayer.allCases.count {
                 // Everything on: hospitals, fire, police and shelters from zoom 9, the busier kinds from zoom 13.
@@ -232,7 +242,12 @@ struct MapLibreView: UIViewRepresentable {
                 // A chosen category (Fuel, Pharmacies…) shows from zoom 9 too, so it never looks empty.
                 major.isVisible = !layers.isEmpty
                 minor.isVisible = false
-                major.predicate = NSPredicate(format: "layer IN %@", layers)
+                if parent.enabledLayers.contains(.water), parent.waterFilter != .all {
+                    let kinds = parent.waterFilter.kinds.map(\.rawValue)
+                    major.predicate = NSPredicate(format: "layer IN %@ AND (layer != 'water' OR kind IN %@)", layers, kinds)
+                } else {
+                    major.predicate = NSPredicate(format: "layer IN %@", layers)
+                }
             }
         }
 

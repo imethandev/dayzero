@@ -462,3 +462,30 @@ struct GzipTests {
         #expect(Gzip.crc32(Data("123456789".utf8)) == 0xCBF43926)
     }
 }
+
+@Suite("Water sources")
+struct WaterSourceTests {
+    @Test func springsWellsAndTapsAreWaterSources() throws {
+        #expect(PlacesWriter.kind(of: ["natural": "spring"]) == .spring)
+        #expect(PlacesWriter.kind(of: ["man_made": "water_well", "pump": "manual"]) == .well)
+        #expect(PlacesWriter.kind(of: ["man_made": "water_well", "pump": "powered"]) == nil, "powered wells need electricity")
+        #expect(PlacesWriter.kind(of: ["man_made": "water_tap"]) == .drinking_water)
+        #expect(PlacesWriter.kind(of: ["amenity": "water_point"]) == .water_point)
+        #expect([PlaceKind.spring, .well, .water_point, .drinking_water].allSatisfy { $0.layer == .water })
+
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("water-\(UUID()).sqlite")
+        defer { try? FileManager.default.removeItem(at: url) }
+        let elements: [[String: Any]] = [
+            ["type": "node", "id": 1, "lat": 47.6, "lon": -122.3, "tags": ["natural": "spring"]],
+            ["type": "node", "id": 2, "lat": 47.61, "lon": -122.31, "tags": ["natural": "spring", "drinking_water": "no", "name": "Iron Spring"]],
+        ]
+        #expect(try PlacesWriter.write(elements: elements, to: url) == 2)
+        let db = PlacesDatabase(path: url.path)
+        let springs = db.nearest([.spring], to: .init(latitude: 47.6, longitude: -122.3), limit: 5)
+        #expect(springs.first?.name == "Spring")
+        #expect(springs.first?.waterNote?.contains("Filter or boil") == true)
+        let iron = try #require(springs.first { $0.name.hasPrefix("Iron Spring") })
+        #expect(iron.isNotDrinkable)
+        #expect(MapIcons.name(for: iron) == "dz-water-untreated")
+    }
+}

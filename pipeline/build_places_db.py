@@ -25,8 +25,14 @@ def kind_of(t):
         return "police"
     if a == "fuel":
         return "fuel"
-    if a == "drinking_water" or t.get("emergency") == "drinking_water":
+    if a == "drinking_water" or t.get("emergency") == "drinking_water" or t.get("man_made") == "water_tap":
         return "drinking_water"
+    if a == "water_point":
+        return "water_point"
+    if t.get("natural") == "spring":
+        return "spring"
+    if t.get("man_made") == "water_well" and t.get("pump") == "manual":
+        return "well"
     if a == "shelter" or t.get("social_facility") == "shelter" or t.get("emergency") == "assembly_point":
         # Picnic and bus shelters are not emergency shelters.
         if a == "shelter" and t.get("shelter_type") in ("picnic_shelter", "public_transport", "weather_shelter", "lean_to", "basic_hut", "field_shelter"):
@@ -110,11 +116,15 @@ with open(src, encoding="utf-8") as f:
             continue
         name = t.get("name") or t.get("official_name")
         if not name:
-            if kind in ("drinking_water", "fuel"):
-                name = {"drinking_water": "Drinking water", "fuel": t.get("brand") or "Fuel"}[kind]
+            fallback = {"drinking_water": "Drinking water", "water_point": "Water refill point",
+                        "spring": "Spring", "well": "Hand-pump well", "fuel": t.get("brand") or "Fuel"}
+            if kind in fallback:
+                name = fallback[kind]
             else:
                 skipped_unnamed += 1
                 continue
+        if kind in ("drinking_water", "water_point", "spring", "well") and t.get("drinking_water") == "no":
+            name += " (not for drinking)"
         osm_id = f"{t.get('@type', '?')[0]}{t.get('@id', '')}"
         if osm_id in seen:
             continue

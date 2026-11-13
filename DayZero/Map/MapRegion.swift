@@ -374,7 +374,10 @@ final class MapDownloader {
         let query = """
         [out:json][timeout:90];
         (
-          nwr["amenity"~"^(hospital|clinic|doctors|pharmacy|fire_station|police|fuel|drinking_water|shelter)$"](\(bbox));
+          nwr["amenity"~"^(hospital|clinic|doctors|pharmacy|fire_station|police|fuel|drinking_water|water_point|shelter)$"](\(bbox));
+          nwr["man_made"="water_tap"](\(bbox));
+          nwr["natural"="spring"](\(bbox));
+          nwr["man_made"="water_well"]["pump"="manual"](\(bbox));
           nwr["healthcare"~"^(hospital|clinic)$"](\(bbox));
           nwr["emergency"~"^(drinking_water|assembly_point)$"](\(bbox));
           nwr["social_facility"="shelter"](\(bbox));
@@ -468,7 +471,10 @@ enum PlacesWriter {
         if a == "fire_station" { return .fire_station }
         if a == "police" { return .police }
         if a == "fuel" { return .fuel }
-        if a == "drinking_water" || t["emergency"] == "drinking_water" { return .drinking_water }
+        if a == "drinking_water" || t["emergency"] == "drinking_water" || t["man_made"] == "water_tap" { return .drinking_water }
+        if a == "water_point" { return .water_point }
+        if t["natural"] == "spring" { return .spring }
+        if t["man_made"] == "water_well", t["pump"] == "manual" { return .well }
         if a == "shelter" || t["social_facility"] == "shelter" || t["emergency"] == "assembly_point" {
             let notEmergency: Set<String> = ["picnic_shelter", "public_transport", "weather_shelter", "lean_to", "basic_hut", "field_shelter"]
             if a == "shelter", let type = t["shelter_type"], notEmergency.contains(type) { return nil }
@@ -512,10 +518,16 @@ enum PlacesWriter {
             guard let kind = kind(of: tags) else { continue }
             var name = tags["name"] ?? tags["official_name"]
             if name == nil {
-                if kind == .drinking_water { name = "Drinking water" }
-                else if kind == .fuel { name = tags["brand"] ?? "Fuel" }
-                else { continue }
+                switch kind {
+                case .drinking_water: name = "Drinking water"
+                case .water_point: name = "Water refill point"
+                case .spring: name = "Spring"
+                case .well: name = "Hand-pump well"
+                case .fuel: name = tags["brand"] ?? "Fuel"
+                default: continue
+                }
             }
+            if kind.layer == .water, tags["drinking_water"] == "no" { name! += Place.notDrinkableSuffix }
             let type = (e["type"] as? String)?.prefix(1) ?? "?"
             let osmID = "\(type)\(e["id"] as? Int ?? 0)"
             guard seen.insert(osmID).inserted else { continue }

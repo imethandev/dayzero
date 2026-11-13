@@ -23,7 +23,7 @@ About 270 suggested items are built in, and you can add your own to any page. Ex
 
 Other tabs:
 
-- **Map:** download the area around you once (5–30 km of full street detail), then use it with no signal. Light and dark styles, filterable hospitals, clinics, pharmacies, fire stations, police, fuel, drinking water and shelters, offline place search, your own pins, distance and bearing to any point, and your coordinates.
+- **Map:** download the area around you once (5–30 km of full street detail), then use it with no signal. Light and dark styles, filterable hospitals, clinics, pharmacies, fire stations, police, fuel, shelters and water sources (fountains and taps, refill points, springs and hand-pump wells, each labeled with whether it needs power or treatment), offline place search, your own pins, distance and bearing to any point, and your coordinates.
 - **Control:** flashlight, SOS (screen and LED in Morse), screen light, whistle, Morse code, compass, coordinates, sunrise and sunset times, timer, stopwatch, calculator, unit converter and dialer. Home Screen quick actions open the flashlight and SOS.
 
 **Backup:** export everything to one JSON file (AirDrop it or save it to a USB drive), restore it later, or print a PDF emergency sheet with contacts, household and inventory.
@@ -77,7 +77,7 @@ xcodebuild test -project DayZero.xcodeproj -scheme DayZero \
 Open the Map tab, allow location and tap **Download my area**. DayZero downloads:
 
 - **Map tiles** from [OpenFreeMap](https://openfreemap.org) (OpenMapTiles schema, zoom 0–14) for 5 to 30 km around you, into an MBTiles file in the app's Application Support folder. Downloads follow OpenFreeMap's offline rules: at most 3,000 tiles or 50 MB each, at most 4 parallel requests, and a User-Agent naming the app. In dense cities the 50 MB limit is reached first; tiles are fetched from the center outward, so you keep full detail closest to you.
-- **Places and facilities** (hospitals, clinics, pharmacies, fire stations, police, fuel, drinking water, shelters and town names) from one [Overpass API](https://overpass-api.de) query, into a searchable `places.sqlite`.
+- **Places and facilities** (hospitals, clinics, pharmacies, fire stations, police, fuel, shelters, water sources and town names) from one [Overpass API](https://overpass-api.de) query, into a searchable `places.sqlite`.
 - **The area's country** from one more Overpass lookup, so the Emergency section uses the right numbers.
 
 Only the area's coordinates are sent. Use the ↓ button next to the map's search field to replace the area or delete it; it turns orange when you're outside the saved area. If your fork ships to many users, consider hosting your own tiles or contacting OpenFreeMap.

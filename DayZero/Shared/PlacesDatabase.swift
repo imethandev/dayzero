@@ -7,6 +7,7 @@ import SwiftUI
 /// Kinds stored in places.sqlite (see pipeline/build_places_db.py).
 enum PlaceKind: String, CaseIterable, Codable {
     case hospital, clinic, pharmacy, fire_station, police, fuel, drinking_water, shelter
+    case water_point, spring, well
     case city, town, village, hamlet
 
     var title: String {
@@ -17,7 +18,10 @@ enum PlaceKind: String, CaseIterable, Codable {
         case .fire_station: "Fire station"
         case .police: "Police"
         case .fuel: "Fuel"
-        case .drinking_water: "Drinking water"
+        case .drinking_water: "Fountain or tap"
+        case .water_point: "Water refill point"
+        case .spring: "Spring"
+        case .well: "Hand-pump well"
         case .shelter: "Shelter"
         case .city: "City"
         case .town: "Town"
@@ -33,7 +37,7 @@ enum PlaceKind: String, CaseIterable, Codable {
         case .fire_station: .fire
         case .police: .police
         case .fuel: .fuel
-        case .drinking_water: .water
+        case .drinking_water, .water_point, .spring, .well: .water
         case .shelter: .shelters
         case .city, .town, .village, .hamlet: nil
         }
@@ -64,7 +68,7 @@ enum FacilityLayer: String, CaseIterable, Identifiable {
         case .police: "Police"
         case .pharmacies: "Pharmacies"
         case .fuel: "Fuel"
-        case .water: "Drinking water"
+        case .water: "Water sources"
         case .shelters: "Shelters"
         }
     }
@@ -96,6 +100,55 @@ enum FacilityLayer: String, CaseIterable, Identifiable {
     var kinds: [PlaceKind] { PlaceKind.allCases.filter { $0.layer == self } }
 }
 
+/// The second filter row under Water on the map.
+enum WaterFilter: String, CaseIterable, Identifiable {
+    case all, taps, refill, springs, wells
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .all: "All water"
+        case .taps: "Fountains & taps"
+        case .refill: "Refill points"
+        case .springs: "Springs"
+        case .wells: "Hand pumps"
+        }
+    }
+
+    var symbol: String {
+        switch self {
+        case .all: "drop.circle.fill"
+        case .taps: "drop.fill"
+        case .refill: "waterbottle.fill"
+        case .springs: "leaf.fill"
+        case .wells: "spigot.fill"
+        }
+    }
+
+    var kinds: [PlaceKind] {
+        switch self {
+        case .all: [.drinking_water, .water_point, .spring, .well]
+        case .taps: [.drinking_water]
+        case .refill: [.water_point]
+        case .springs: [.spring]
+        case .wells: [.well]
+        }
+    }
+}
+
+extension PlaceKind {
+    /// What to expect from a water source in an emergency, shown on its map card.
+    var waterNote: String? {
+        switch self {
+        case .drinking_water: "Tap water. Usually keeps working in a blackout while city water pressure holds, but can stop after an earthquake or a long outage. Boil it during a boil-water notice."
+        case .water_point: "Refill point for larger containers. Tap water, with the same limits as fountains."
+        case .spring: "Natural source that doesn't need power. Filter or boil before drinking."
+        case .well: "Hand pump: works with no power or water pressure. Filter or boil before drinking."
+        default: nil
+        }
+    }
+}
+
 struct Place: Identifiable, Hashable {
     let id: Int64
     let name: String
@@ -107,6 +160,16 @@ struct Place: Identifiable, Hashable {
     let website: String
 
     var coordinate: CLLocationCoordinate2D { .init(latitude: latitude, longitude: longitude) }
+
+    /// OpenStreetMap marks some springs, wells and taps as not drinkable; the importer adds this suffix.
+    static let notDrinkableSuffix = " (not for drinking)"
+    var isNotDrinkable: Bool { kind.layer == .water && name.hasSuffix(Self.notDrinkableSuffix) }
+
+    var waterNote: String? {
+        isNotDrinkable
+            ? "Marked not drinkable in OpenStreetMap. Use it for washing and flushing. Only as a last resort, filter and boil it first."
+            : kind.waterNote
+    }
 }
 
 /// Read-only access to places.sqlite (FTS5 search + nearest queries): the downloaded

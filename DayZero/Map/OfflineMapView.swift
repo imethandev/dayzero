@@ -26,6 +26,7 @@ struct OfflineMapView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var context
     @AppStorage("map.theme") private var themeSetting: MapThemeSetting = .auto
+    @AppStorage("map.waterFilter") private var waterFilter: WaterFilter = .all
     @AppStorage("map.layers") private var layersRaw = FacilityLayer.allCases.map(\.rawValue).joined(separator: ",")
 
     @Query private var pins: [MapPin]
@@ -128,6 +129,7 @@ struct OfflineMapView: View {
                     recenterToken: recenterToken,
                     focus: router.mapFocus,
                     enabledLayers: enabledLayers,
+                    waterFilter: waterFilter,
                     contacts: contactMarkers,
                     pins: pinMarkers,
                     onRecenterFailed: recenterFailed,
@@ -198,6 +200,7 @@ struct OfflineMapView: View {
             }
             .padding(.horizontal, 16)
 
+            ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     CategoryChip(title: "All", symbol: "square.grid.2x2.fill", color: .systemGray,
@@ -209,13 +212,45 @@ struct OfflineMapView: View {
                                      isOn: enabledLayers.contains(layer) && enabledLayers.count < FacilityLayer.allCases.count) {
                             tapCategory(layer)
                         }
+                        .id(layer)
                     }
                 }
                 .padding(.horizontal, 16)
             }
             .scrollClipDisabled()
+            .onAppear {
+                // Bring the chosen category into view.
+                if enabledLayers.count < FacilityLayer.allCases.count,
+                   let first = FacilityLayer.allCases.first(where: enabledLayers.contains) {
+                    proxy.scrollTo(first, anchor: .center)
+                }
+            }
+            }
+
+            if showsWaterFilter {
+                ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(WaterFilter.allCases) { f in
+                            CategoryChip(title: f.title, symbol: f.symbol,
+                                         color: f == .springs || f == .wells ? .systemTeal : .systemCyan,
+                                         isOn: waterFilter == f, compact: true) {
+                                waterFilter = f
+                                withAnimation { proxy.scrollTo(f, anchor: .center) }
+                            }
+                            .id(f)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .scrollClipDisabled()
+                .onAppear { proxy.scrollTo(waterFilter, anchor: .center) }
+                }
+                .transition(.move(edge: .top).combined(with: .opacity))
+            }
         }
         .padding(.top, 4)
+        .animation(.snappy, value: showsWaterFilter)
     }
 
     /// Search results or the "Show on map" card, floating at the top of the map card.
@@ -356,6 +391,11 @@ struct OfflineMapView: View {
 
     // MARK: Actions
 
+    /// The water-type row appears when Water is one of the chosen categories.
+    private var showsWaterFilter: Bool {
+        enabledLayers.contains(.water) && enabledLayers.count < FacilityLayer.allCases.count
+    }
+
     private func setLayers(_ set: Set<FacilityLayer>) {
         layersRaw = FacilityLayer.allCases.filter(set.contains).map(\.rawValue).joined(separator: ",")
     }
@@ -421,6 +461,7 @@ private struct CategoryChip: View {
     let symbol: String
     let color: UIColor
     let isOn: Bool
+    var compact = false
     let action: () -> Void
 
     var body: some View {
@@ -430,11 +471,11 @@ private struct CategoryChip: View {
                     .font(.caption.weight(.bold))
                     .foregroundStyle(isOn ? .white : Color(color))
                 Text(title)
-                    .font(.subheadline.weight(.semibold))
+                    .font(compact ? .footnote.weight(.semibold) : .subheadline.weight(.semibold))
                     .foregroundStyle(isOn ? .white : .primary)
             }
-            .padding(.horizontal, 12)
-            .frame(height: 34)
+            .padding(.horizontal, compact ? 10 : 12)
+            .frame(height: compact ? 30 : 34)
             .background(isOn ? Color(color) : Color(.secondarySystemGroupedBackground), in: Capsule())
         }
         .buttonStyle(.plain)
@@ -547,6 +588,13 @@ private struct SelectionCard: View {
 
             if let detail, !detail.isEmpty {
                 Text(detail).font(.callout).lineLimit(3)
+            }
+
+            if let note = place?.waterNote {
+                Label(note, systemImage: place?.isNotDrinkable == true ? "exclamationmark.triangle.fill" : "drop.fill")
+                    .font(.footnote)
+                    .foregroundStyle(place?.isNotDrinkable == true ? Color.orange : Color.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
             HStack {
